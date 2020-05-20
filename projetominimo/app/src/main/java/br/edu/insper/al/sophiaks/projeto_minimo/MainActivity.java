@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             String username = textUsername.getText().toString();
             String password = textPassword.getText().toString();
             System.out.print("Clicou");
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if(response.equals("true")){
