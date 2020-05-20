@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">projeto-minimo</string>
+    android.permission.INTERNET
 </resources>
