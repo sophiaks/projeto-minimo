@@ -4,6 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:background="#dcf4e4">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="#1b2c2c"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_launcher"
+            android:background="#1b2c2c"
+            />
+
+        <RelativeLayout
+            android:layout_width="270dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="69dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center" >
+            <EditText
+                android:layout_width="220dp"
+                android:layout_height="35dp"
+                android:background="#dcf4e4"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/search"
+                android:background="#dcf4e4"
+                />
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/filtro"
+            tools:ignore="MissingConstraints" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_height="250dp"
+        android:layout_width="wrap_content"
+        tools:ignore="MissingConstraints">
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="#dcf4e4"
+        android:src="@drawable/video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="86dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
