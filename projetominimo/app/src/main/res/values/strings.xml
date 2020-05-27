@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">projeto-minimo</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
     android.permission.INTERNET
 </resources>

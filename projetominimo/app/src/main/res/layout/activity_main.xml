@@ -13,31 +13,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/icon_semente" />
+        android:background="@drawable/icon_semente"
+        android:contentDescription="Logo do Programa Semente" />
 
 
     <EditText android:id="@+id/text_username"
+        android:singleLine="true"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="#243745"
-        android:hint="Username"
+        android:hint="@string/username"
         android:textSize="30sp"
         android:visibility="visible"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="50dp"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="no" />
+
     <EditText android:id="@+id/text_password"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password"
         android:background="#243745"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
 
     <Button android:id="@+id/button_login"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:text="Login"
+        android:text="@string/login"
         android:background="@drawable/corner"
         android:layout_marginTop="40dp"
         />

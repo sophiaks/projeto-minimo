@@ -63,14 +63,99 @@
         tools:ignore="MissingConstraints">
     </RelativeLayout>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:background="#dcf4e4"
-        android:src="@drawable/video"
+<!--    Div do video-->
+
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="86dp"/>
+        tools:layout_editor_absoluteY="96dp"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="#dcf4e4"
+            android:src="@drawable/video" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:text="ALUNO - Fundamental 1 - 1º Ano - Bloco 6"
+            android:fontFamily="sans-serif-condensed-light"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#1b2c2c"
+            android:background="#99609c70"
+            android:textAlignment="textStart"
+            tools:ignore="RtlCompat" />
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@android:color/darker_gray"/>-->
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="300dp"
+            android:fontFamily="sans-serif"
+            android:text="3:00"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:background="#99609c70"
+            tools:ignore="ExtraText">
+
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1b2c2c"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="672dp">
+
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/config"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="194dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/bell"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:layout_width="29dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="18dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/materiais"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
