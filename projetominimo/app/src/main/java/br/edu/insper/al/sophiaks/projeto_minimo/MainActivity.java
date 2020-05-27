@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -17,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +29,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String url= "http://sistema.programasemente.com.br/profile/auth_view_mobile/";
+    public String url= "https://sistema.programasemente.com.br/profile/auth_view_mobile/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -72,31 +74,43 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //getJsonData();
-                        Log.d("Response", response);
-                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
-                    }
-                }, new Response.ErrorListener() {
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //getJsonData();
+//                JSONArray jsonArray = null;
+//                try {
+//                    jsonArray = new JSONArray(response);
+//                } catch (JSONException e){
+//                    e.printStackTrace();
+//                }
+                Log.d("VOLLEY", response);
+                Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("Error Response", error.toString());
                 Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("username", username);
                 params.put("password", password);
                 return params;
             }
         };
 
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(
+                7000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
+
         // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+        queue.add(postRequest);
     }
 
 }
