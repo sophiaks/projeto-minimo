@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
-    android:background="#dcf4e4">
+    android:layout_width="match_parent">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -54,32 +54,24 @@
             android:gravity="center_horizontal"
             android:src="@drawable/filtro"
             tools:ignore="MissingConstraints" />
-
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_height="250dp"
-        android:layout_width="wrap_content"
-        tools:ignore="MissingConstraints">
     </RelativeLayout>
 
-<!--    Div do video-->
+    <!--    Div do video-->
 
 
     <RelativeLayout
         android:layout_width="350dp"
         android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="96dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
         >
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:background="#dcf4e4"
             android:src="@drawable/video" />
+
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -92,11 +84,6 @@
             android:background="#99609c70"
             android:textAlignment="textStart"
             tools:ignore="RtlCompat" />
-
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@android:color/darker_gray"/>-->
 
         <TextView
             android:layout_width="50dp"
@@ -114,12 +101,29 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button android:id="@+id/button_teste"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Teste"/>
+
+        <TextView android:id="@+id/text_teste"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="ola"
+            android:textSize="25sp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#1b2c2c"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="672dp">
+        android:layout_marginTop="150dp"
+        android:background="#1b2c2c">
 
         <ImageButton
             android:layout_width="38dp"
@@ -154,8 +158,4 @@
             android:src="@drawable/materiais"
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

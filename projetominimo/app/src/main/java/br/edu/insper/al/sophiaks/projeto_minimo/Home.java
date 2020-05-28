@@ -2,8 +2,10 @@ package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,14 +14,17 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.PrivateKey;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -27,71 +32,54 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class Home extends AppCompatActivity {
-    Dictionary usuario = new Dictionary() {
-        @Override
-        public int size() {
-            return 0;
-        }
+    private TextView mTextViewResult;
+    private RequestQueue mQueue;
 
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public Enumeration keys() {
-            return null;
-        }
-
-        @Override
-        public Enumeration elements() {
-            return null;
-        }
-
-        @Override
-        public Object get(Object key) {
-            return null;
-        }
-
-        @Override
-        public Object put(Object key, Object value) {
-            return null;
-        }
-
-        @Override
-        public Object remove(Object key) {
-            return null;
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-//        String serie_id = usuario.get("id").toString();
-//        String escola_id = usuario.get("escola_id").toString();
-//        String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/"+serie_id+"/"+escola_id+"/";
-        String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/5/54829/";
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("Response", response.toString());
-                        textView.setText("Response: " + response.toString());
-                        Toast.makeText(Home.this, response., Toast.LENGTH_LONG).show();
-                    }
-                }, new Response.ErrorListener() {
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
-                    }
-                });
+        mTextViewResult = findViewById(R.id.text_teste);
+        Button button = findViewById(R.id.button_teste);
 
-        // Access the RequestQueue through your singleton class.
-        //        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-        // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
+        mQueue = Volley.newRequestQueue(this);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jsonParse();
+            }
+        });
     }
 
+    private void jsonParse(){
+        String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/5/54829/";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                response -> {
+                    try {
+//                            mTextViewResult.setText(response.toString());
+                        Log.d("Response", response.toString());
+                        JSONArray jsonArray = response.getJSONArray("data");
+
+                        for (int i = 0; i < jsonArray.length(); i++){
+                            JSONObject data = jsonArray.getJSONObject(i);
+
+                            String nome = data.getString("nome");
+                            String vimeo = data.getString("vimeo");
+                            String categoria = data.getString("categoria");
+
+
+                            mTextViewResult.append(nome + ", "+ "url vimeo:"+ vimeo + ". Categoria :" + categoria + "\n");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+                    mTextViewResult.setText("ERROR");
+                    error.printStackTrace();
+                });
+
+        mQueue.add(request);
+    }
 }
