@@ -31,7 +31,7 @@
             <EditText
                 android:layout_width="220dp"
                 android:layout_height="35dp"
-                android:background="#dcf4e4"
+                android:background="#e7f4d7"
                 />
 
             <ImageView
@@ -73,6 +73,7 @@
             android:src="@drawable/video" />
 
         <TextView
+            android:id="@+id/titulo"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
@@ -81,7 +82,7 @@
             android:gravity="center"
             android:textSize="18dp"
             android:textColor="#1b2c2c"
-            android:background="#99609c70"
+            android:background="#c4e09e"
             android:textAlignment="textStart"
             tools:ignore="RtlCompat" />
 
@@ -94,7 +95,7 @@
             android:text="3:00"
             android:gravity="center"
             android:textSize="18dp"
-            android:background="#99609c70"
+            android:background="#c4e09e"
             tools:ignore="ExtraText">
 
         </TextView>
