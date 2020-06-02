@@ -60,70 +60,22 @@
 
 
     <RelativeLayout
-        android:layout_width="350dp"
-        android:layout_height="250dp"
+        android:layout_width="400dp"
+        android:layout_height="350dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         >
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:background="#dcf4e4"
-            android:src="@drawable/video" />
-
-        <TextView
-            android:id="@+id/titulo"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:text="ALUNO - Fundamental 1 - 1º Ano - Bloco 6"
-            android:fontFamily="sans-serif-condensed-light"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:textColor="#1b2c2c"
-            android:background="#c4e09e"
-            android:textAlignment="textStart"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginLeft="300dp"
-            android:fontFamily="sans-serif"
-            android:text="3:00"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:background="#c4e09e"
-            tools:ignore="ExtraText">
-
-        </TextView>
     </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button android:id="@+id/button_teste"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="Teste"/>
-
-        <TextView android:id="@+id/text_teste"
-            android:layout_marginTop="50dp"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="ola"
-            android:textSize="25sp"
-            />
-    </RelativeLayout>
-
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="240dp"
         android:background="#1b2c2c">
 
         <ImageButton

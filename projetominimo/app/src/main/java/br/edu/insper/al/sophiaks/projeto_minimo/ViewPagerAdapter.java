@@ -2,11 +2,18 @@ package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.provider.Browser;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,7 +33,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     LinkedList<String> linkedThumb;
     LinkedList<String> linkedCategory;
     LayoutInflater inflater;
-
     public ViewPagerAdapter(Context context, LinkedList<String> linkedTitle, LinkedList<String> linkedVimeo,
                             LinkedList<String> linkedCategory, LinkedList<String> linkedThumb) {
         this.context = context;
@@ -45,6 +51,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return view == ((RelativeLayout) object);
     }
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -66,14 +73,17 @@ public class ViewPagerAdapter extends PagerAdapter {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
 
+
         txttitle = (TextView) itemView.findViewById(R.id.titleVideo);
-
+        txtcategory = (TextView) itemView.findViewById(R.id.categoryVideo);
         // Capture position and set to the TextViews
-
         txttitle.setText(linkedTitle.get(position));
+        txtcategory.setText(linkedCategory.get(position));
 
-        webView.loadUrl(linkedVimeo.get(position));
-        // Add viewpager_item.xml to ViewPager
+//        Capture url and set the webView
+        webView.loadUrl("https://player.vimeo.com/video/24577973");
+
+        // Add viewpager viewpager_video.xml to ViewPager
         ((ViewPager) container).addView(itemView);
 
         return itemView;
@@ -85,4 +95,5 @@ public class ViewPagerAdapter extends PagerAdapter {
         ((ViewPager) container).removeView((RelativeLayout) object);
 
     }
+
 }

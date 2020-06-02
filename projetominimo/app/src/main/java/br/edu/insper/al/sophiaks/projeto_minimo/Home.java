@@ -59,7 +59,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Locate the ViewPager in viewpager_main.xml
+        // Locate the ViewPager in activity_home.xml
         viewPager = findViewById(R.id.pager);
 
         mQueue = Volley.newRequestQueue(this);
