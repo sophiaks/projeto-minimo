@@ -52,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 doLogin(username, password);
             }
         });
+
+        buttonRegister.setOnClickListener((view) -> {
+            Intent intentRegister = new Intent(this, HomeRegister.class);
+            startActivity(intentRegister);
+            finish();
+        });
     }
 
     //      CHECA SE FOI COLOCADO UM USERNAME E PASSWORD

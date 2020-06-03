@@ -4,6 +4,7 @@
     package="br.edu.insper.al.sophiaks.projeto_minimo">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
         android:allowBackup="true"
         android:networkSecurityConfig="@xml/cache"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".Home"></activity>
+        <activity android:name=".HomeRegister"></activity>
+        <activity android:name=".StudentRegister"></activity>
+        <activity android:name=".ProfessorRegister"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -26,11 +26,13 @@ public class HomeRegister extends AppCompatActivity {
         buttonProfessor.setOnClickListener((view) -> {
             Intent intent = new Intent(this, ProfessorRegister.class);
             startActivity(intent);
+            finish();
         });
 
         buttonStudent.setOnClickListener((view) -> {
             Intent intent = new Intent(this, StudentRegister.class);
             startActivity(intent);
+            finish();
         });
 
     }
