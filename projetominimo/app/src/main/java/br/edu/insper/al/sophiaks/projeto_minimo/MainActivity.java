@@ -24,15 +24,16 @@ import org.json.JSONObject;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String url= "https://sistema.programasemente.com.br/profile/auth_view_mobile/";
+    public String url= "http://sistema.programasemente.com.br/profile/auth_view_mobile/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         CookieManager manager = new CookieManager();
         CookieHandler.setDefault(manager);
@@ -40,16 +41,19 @@ public class MainActivity extends AppCompatActivity {
         Button buttonLogin = findViewById(R.id.button_login);
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
-        //          METODO DE Login
+
+
+        //          METODO DE LOGIN
         buttonLogin.setOnClickListener((view) -> {
             String username = textUsername.getText().toString();
             String password = textPassword.getText().toString();
             if(validateLogin(username, password)) {
-                //do login
                 doLogin(username, password);
             }
         });
     }
+
+    //      CHECA SE FOI COLOCADO UM USERNAME E PASSWORD
     private boolean validateLogin(String username, String password){
         if(username == null || username.trim().length() == 0){
             Toast.makeText(this, "Username is required", Toast.LENGTH_SHORT).show();
@@ -61,36 +65,28 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
+    //       EFETUA UM LOGIN
     private void doLogin(final String username,final String password) {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        JSONObject jsonParams = new JSONObject();
-        try {
-            jsonParams .put("username",username);
-            jsonParams .put("password",password);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         // Request a string response from the provided URL.
         StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //getJsonData();
-//                JSONArray jsonArray = null;
-//                try {
-//                    jsonArray = new JSONArray(response);
-//                } catch (JSONException e){
-//                    e.printStackTrace();
-//                }
                 Log.d("VOLLEY", response);
                 Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
+                if (!response.contains("False")) {
+                    goToPage(response);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Error Response", error.toString());
+                Log.d("VOLLEY", error.toString());
                 Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         }) {
@@ -103,15 +99,18 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        postRequest.setRetryPolicy(new DefaultRetryPolicy(
-                7000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
-        ));
-
         // Add the request to the RequestQueue.
         queue.add(postRequest);
     }
+
+    // METODO PRA PASSAR PARA PAGINA HOME
+    private void goToPage(String response) {
+        Intent intent = new Intent(this, Home.class);
+        intent.putExtra("response", response);
+        startActivity(intent);
+        finish();
+    }
+
 
 }
 

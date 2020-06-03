@@ -54,6 +54,10 @@ public class Home extends AppCompatActivity {
     LinkedList<String> linkedThumb;
     LinkedList<String> linkedCategory;
 
+    Intent loginPage;
+    JSONObject login;
+    Bundle extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +74,16 @@ public class Home extends AppCompatActivity {
 
         jsonParse();
 
-
+        // Busca as informações do Post do login
+        loginPage = getIntent();
+        extras = loginPage.getExtras();
+        if (extras != null){
+            try {
+                login = new JSONObject(loginPage.getStringExtra("response")); // pega as infos como um JSONObject
+            } catch(JSONException e) {
+                e.printStackTrace();
+            };
+        }
     }
 
     private void jsonParse(){
