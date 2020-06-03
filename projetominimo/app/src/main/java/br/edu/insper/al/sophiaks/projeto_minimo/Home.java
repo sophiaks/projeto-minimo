@@ -98,6 +98,7 @@ public class Home extends AppCompatActivity {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             for (int i = 0; i < jsonArray.length(); i++){
+                                // Data assume a chave dos dicionários dentro do value da key "data"
                                 JSONObject data = jsonArray.getJSONObject(i);
 //                                Capture name and add in a linked List
                                 String nome = data.getString("nome");
