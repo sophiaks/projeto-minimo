@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             String password = textPassword.getText().toString();
             if(validateLogin(username, password)) {
                 doLogin(username, password);
-
             }
         });
     }
@@ -81,12 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("VOLLEY", response);
                 Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
                 if (!response.contains("False")) {
-                    try {
-                        JSONObject data = new JSONObject(response);
-                        goToPage(data);
-                    } catch(JSONException e) {
-                        e.printStackTrace();
-                    }
+                    goToPage(response);
                 }
             }
         }, new Response.ErrorListener() {
@@ -110,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // METODO PRA PASSAR PARA PAGINA HOME
-    private void goToPage(JSONObject response) {
+    private void goToPage(String response) {
         Intent intent = new Intent(this, Home.class);
-        intent.putExtra("response", response.toString());
+        intent.putExtra("response", response);
         startActivity(intent);
         finish();
     }
