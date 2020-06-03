@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         CookieHandler.setDefault(manager);
         setContentView(R.layout.activity_main);
         Button buttonLogin = findViewById(R.id.button_login);
+        Button buttonRegister = findViewById(R.id.button_register);
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
 
