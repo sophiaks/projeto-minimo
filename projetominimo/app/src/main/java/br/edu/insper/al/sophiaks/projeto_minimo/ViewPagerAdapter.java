@@ -64,7 +64,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("ResourceType") View itemView = inflater.inflate(R.xml.viewpager_video, container,
+        @SuppressLint("ResourceType") View itemView = inflater.inflate(R.layout.fragment_screen_video, container,
                 false);
 
         // Locate the TextViews in viewpager_item.xml
