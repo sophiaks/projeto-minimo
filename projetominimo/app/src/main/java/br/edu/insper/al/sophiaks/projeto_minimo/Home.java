@@ -80,24 +80,25 @@ public class Home extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-//                            mTextViewResult.setText(response.toString());
+
                             Log.d("Response", response.toString());
                             JSONArray jsonArray = response.getJSONArray("data");
-//                            JSONObject dataa = jsonArray.getJSONObject(0);
-//                            String videoUrl = dataa.getString("vimeo");
-//                            String titlee = dataa.getString("nome");
-//                            titleView.setText(titlee);
-//                            String videoId = dataa.getString("url");
-//                            Log.d("Video", videoUrl);
-//                            webView.loadUrl("https://vimeo.com/24577973");
+
                             for (int i = 0; i < jsonArray.length(); i++){
                                 JSONObject data = jsonArray.getJSONObject(i);
+//                                Capture name and add in a linked List
                                 String nome = data.getString("nome");
                                 linkedTitle.add(nome);
+
+//                                Capture url vimeo and add in a linked List
                                 String vimeo = data.getString("vimeo");
                                 linkedVimeo.add(vimeo);
+
+//                                Capture category and add in a linked List
                                 String categoria = data.getString("categoria");
                                 linkedCategory.add(categoria);
+
+//                                Capture thumb and add in a linked List
                                 String thumb = data.getString("thumbnail");
                                 linkedThumb.add(thumb);
                             }
