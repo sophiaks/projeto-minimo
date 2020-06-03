@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             String password = textPassword.getText().toString();
             if(validateLogin(username, password)) {
                 doLogin(username, password);
+
             }
         });
     }
@@ -78,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("VOLLEY", response);
                 Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
+                if (!response.contains("False")) {
+                    try {
+                        JSONObject data = new JSONObject(response);
+                        goToPage(data);
+                    } catch(JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -98,6 +108,15 @@ public class MainActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(postRequest);
     }
+
+    // METODO PRA PASSAR PARA PAGINA HOME
+    private void goToPage(JSONObject response) {
+        Intent intent = new Intent(this, Home.class);
+        intent.putExtra("response", response.toString());
+        startActivity(intent);
+        finish();
+    }
+
 
 }
 
