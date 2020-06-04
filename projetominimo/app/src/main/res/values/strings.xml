@@ -3,5 +3,9 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="logo_do_programa_semente">Logo do Programa Semente</string>
+    <string name="senha">Senha</string>
+    <string name="usu_rio">Usuário</string>
     android.permission.INTERNET
 </resources>
