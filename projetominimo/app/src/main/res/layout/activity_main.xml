@@ -49,6 +49,8 @@
         android:layout_marginTop="40dp"
         />
 
+
+
     <Button android:id="@+id/button_register"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -56,6 +58,15 @@
         android:text="Cadastro"
         android:background="@drawable/corner"
         android:layout_marginTop="40dp"
+        />
+
+    <Button android:id="@+id/button_token"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Teste token"
+        android:background="@drawable/corner"
+        android:layout_marginTop="5dp"
         />
 
 

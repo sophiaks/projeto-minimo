@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -16,6 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 
 import org.json.JSONArray;
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button buttonLogin = findViewById(R.id.button_login);
         Button buttonRegister = findViewById(R.id.button_register);
+        Button buttonToken = findViewById(R.id.button_token);
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
 
@@ -57,6 +63,30 @@ public class MainActivity extends AppCompatActivity {
             Intent intentRegister = new Intent(this, HomeRegister.class);
             startActivity(intentRegister);
             finish();
+        });
+
+        buttonToken.setOnClickListener((view) ->{
+            // Get token
+            // [START retrieve_current_token]
+            FirebaseInstanceId.getInstance().getInstanceId()
+                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                            if (!task.isSuccessful()) {
+                                Log.w("MainActivity", "getInstanceId failed", task.getException());
+                                return;
+                            }
+
+                            // Get new Instance ID token
+                            String token = task.getResult().getToken();
+
+                            // Log and toast
+//                            String msg = getString(R.string.msg_token_fmt, token);
+                            Log.v("TOKEN", token);
+                            Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            // [END retrieve_current_token]
         });
     }
 

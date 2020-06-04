@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "628931557312",
+    "firebase_url": "https://teste-firebase-minimo.firebaseio.com",
+    "project_id": "teste-firebase-minimo",
+    "storage_bucket": "teste-firebase-minimo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628931557312:android:8171bb9cee30c168caba25",
+        "android_client_info": {
+          "package_name": "br.edu.insper.al.sophiaks.projeto_minimo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628931557312-p6vjgf79pfc1tr59rgvukuda0q14lukj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqLCcvzCvzzDyayJ0_NZ3JdvvYbPzuRyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628931557312-p6vjgf79pfc1tr59rgvukuda0q14lukj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
