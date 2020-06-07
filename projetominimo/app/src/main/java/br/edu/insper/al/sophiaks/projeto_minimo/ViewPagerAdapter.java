@@ -32,14 +32,16 @@ public class ViewPagerAdapter extends PagerAdapter {
     LinkedList<String> linkedVimeo;
     LinkedList<String> linkedThumb;
     LinkedList<String> linkedCategory;
+    LinkedList<String> linkedVimeoUrl;
     LayoutInflater inflater;
     public ViewPagerAdapter(Context context, LinkedList<String> linkedTitle, LinkedList<String> linkedVimeo,
-                            LinkedList<String> linkedCategory, LinkedList<String> linkedThumb) {
+                            LinkedList<String> linkedCategory, LinkedList<String> linkedThumb, LinkedList<String> linkedVimeoUrl) {
         this.context = context;
         this.linkedTitle = linkedTitle;
         this.linkedVimeo = linkedVimeo;
         this.linkedCategory = linkedCategory;
         this.linkedThumb = linkedThumb;
+        this.linkedVimeoUrl = linkedThumb;
     }
 
     @Override
@@ -81,7 +83,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         txtcategory.setText(linkedCategory.get(position));
 
 //        Capture url and set the webView
-        webView.loadUrl("https://player.vimeo.com/video/24577973");
+        webView.loadUrl("https://player.vimeo.com/video/"+linkedVimeoUrl.get(position));
 
         // Add viewpager viewpager_video.xml to ViewPager
         ((ViewPager) container).addView(itemView);

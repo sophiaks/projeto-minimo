@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
     LinkedList<String> linkedVimeo;
     LinkedList<String> linkedThumb;
     LinkedList<String> linkedCategory;
-
+    LinkedList<String> linkedVimeoUrl;
     Intent loginPage;
     JSONObject login;
     Bundle extras;
@@ -71,7 +71,7 @@ public class Home extends AppCompatActivity {
         linkedVimeo= new LinkedList<String>();
         linkedThumb= new LinkedList<String>();
         linkedCategory= new LinkedList<String>();
-
+        linkedVimeoUrl = new LinkedList<String>();
         jsonParse();
 
         // Busca as informações do Post do login
@@ -115,10 +115,13 @@ public class Home extends AppCompatActivity {
 //                                Capture thumb and add in a linked List
                                 String thumb = data.getString("thumbnail");
                                 linkedThumb.add(thumb);
+                                //                                Capture thumb and add in a linked List
+                                String vimeoid = data.getString("url");
+                                linkedVimeoUrl.add(vimeoid);
                             }
 
                             // Pass results to ViewPagerAdapter Class
-                            adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb);
+                            adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
                             // Binds the Adapter to the ViewPager
                             viewPager.setAdapter(adapter);
                         } catch (JSONException e) {
