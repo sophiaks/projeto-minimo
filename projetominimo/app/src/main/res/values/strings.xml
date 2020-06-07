@@ -7,5 +7,17 @@
     <string name="logo_do_programa_semente">Logo do Programa Semente</string>
     <string name="senha">Senha</string>
     <string name="usu_rio">Usuário</string>
+    <string name="nome">Nome</string>
+    <string name="escolha_o_tipo_de_professor_que_voc">Escolha o tipo de professor que você é:</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="professor">Professor</string>
+    <string-array name="names">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+    <string-array name="ptypes">
+        <item>Professor Aplicador</item>
+        <item>Professor Não Aplicador</item>
+    </string-array>
     android.permission.INTERNET
 </resources>
