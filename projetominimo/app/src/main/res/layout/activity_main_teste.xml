@@ -60,4 +60,14 @@
         android:textColor="#024121"
         android:layout_marginTop="40dp" />
 
+    <Button android:id="@+id/button_token"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Teste token"
+        android:background="#d6e015"
+        android:textColor="#024121"
+        />
+
 </LinearLayout>

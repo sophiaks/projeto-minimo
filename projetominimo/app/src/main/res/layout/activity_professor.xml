@@ -33,13 +33,16 @@
 
 
     <EditText
+        android:id="@+id/cod_prof"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="25dp"
         android:hint="CÓDIGO"
-        android:layout_marginBottom="10dp"/>
+        android:inputType="text"
+        android:layout_marginBottom="10dp"
+        android:imeOptions="actionDone"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -75,6 +78,24 @@
         android:textColorHint="#698b91"
         android:textColorHighlight="#d6e015">
     </ListView>
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="E-mail"
+        />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Senha"
+        />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Confirmação da Senha"
+        />
 
     <Button
         android:id="@+id/btnFinish"
