@@ -40,19 +40,22 @@
         android:layout_gravity="center_horizontal"
         android:textSize="25dp"
         android:hint="CÓDIGO"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:layout_marginBottom="10dp"
         android:imeOptions="actionDone"/>
 
     <EditText
+        android:id="@+id/nameProf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/nome"
+        android:visibility="gone"
         />
 
     <ListView
         android:id="@+id/listaGenero"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="5dp"
@@ -62,6 +65,8 @@
     </ListView>
 
     <TextView
+        android:id="@+id/textOptProf"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -70,6 +75,7 @@
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"/>
     <ListView
+        android:visibility="gone"
         android:id="@+id/optProfessor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,24 +86,31 @@
     </ListView>
 
     <EditText
+        android:visibility="gone"
+        android:id="@+id/emailProf"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail"
         />
 
     <EditText
+        android:visibility="gone"
+        android:id="@+id/passwordProf"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Senha"
         />
 
     <EditText
+        android:visibility="gone"
+        android:id="@+id/passwordConfProf"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Confirmação da Senha"
         />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btnFinish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
