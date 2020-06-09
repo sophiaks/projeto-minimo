@@ -43,6 +43,12 @@
         android:inputType="textCapSentences"
         android:layout_marginBottom="10dp"
         android:imeOptions="actionDone"/>
+    <Button
+        android:id="@+id/validBtton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VALIDAR"
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/nameProf"
