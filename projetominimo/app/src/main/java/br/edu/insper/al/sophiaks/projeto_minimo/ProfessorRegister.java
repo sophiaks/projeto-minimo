@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,12 +38,26 @@ import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProfessorRegister extends AppCompatActivity {
+    RequestQueue queue;
     final String LOG_TAG = "myLogs";
     ListView optProfessor;
     String[] names;
     String[] ptypes;
     TextView textOptProf;
+
+    EditText nameProf;
+    String genValue;
+    String optValue;
+    EditText emailProf;
+    EditText passwordProf ;
+    EditText passwordConfProf;
+    Button btnValid;
+    Button btnregister;
+    EditText codProf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +65,13 @@ public class ProfessorRegister extends AppCompatActivity {
         setContentView(R.layout.activity_professor);
         ListView listaGenero = findViewById(R.id.listaGenero);
         ListView optProfessor = findViewById(R.id.optProfessor);
-        EditText nameProf = findViewById(R.id.nameProf);
+        nameProf = findViewById(R.id.nameProf);
         textOptProf = findViewById(R.id.textOptProf);
-        EditText emailProf = findViewById(R.id.emailProf);
-        EditText passwordProf = findViewById(R.id.passwordProf);
-        EditText passwordConfProf = findViewById(R.id.passwordConfProf);
-        Button btnValid = findViewById(R.id.validBtton);
-
+        emailProf = findViewById(R.id.emailprof);
+        passwordProf = findViewById(R.id.passwordProf);
+        passwordConfProf = findViewById(R.id.passwordConfProf);
+        btnValid = findViewById(R.id.validBtton);
+        btnregister = findViewById(R.id.btnFinish);
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         optProfessor.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         // create adapter using array from resources file
@@ -68,12 +83,26 @@ public class ProfessorRegister extends AppCompatActivity {
                 android.R.layout.simple_list_item_single_choice);
         listaGenero.setAdapter(adapter);
         optProfessor.setAdapter(adapter2);
-
         // get array from resources file
         names = getResources().getStringArray(R.array.names);
         ptypes = getResources().getStringArray(R.array.ptypes);
-        final EditText codProf = findViewById(R.id.cod_prof);
-        RequestQueue queue = Volley.newRequestQueue(this);
+        codProf = findViewById(R.id.cod_prof);
+        queue = Volley.newRequestQueue(this);
+
+        listaGenero.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+               CharSequence gen_value = (CharSequence) listaGenero.getItemAtPosition(position); //
+               genValue = gen_value.toString(); //getter method
+           }
+        });
+        optProfessor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                CharSequence opt_value = (CharSequence) optProfessor.getItemAtPosition(position); //
+                optValue = opt_value.toString(); //getter method
+            }
+        });
+
+
         btnValid.setOnClickListener((view) -> {
                 String codProfessor = codProf.getText().toString();
                 String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_professores=" + "CODP";
@@ -88,6 +117,7 @@ public class ProfessorRegister extends AppCompatActivity {
                         emailProf.setVisibility(View.VISIBLE);
                         passwordProf.setVisibility(View.VISIBLE);
                         passwordConfProf.setVisibility(View.VISIBLE);
+                        btnregister.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(ProfessorRegister.this, "Código inválido", Toast.LENGTH_SHORT).show();
                     }
@@ -116,6 +146,49 @@ public class ProfessorRegister extends AppCompatActivity {
                 });
             queue.add(getRequest);
         });
+        btnregister.setOnClickListener((view) -> {
+            doRegister();
+        });
+    }
+    public void doRegister(){
+        // Instantiate the RequestQueue.
+        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
+        // Request a string response from the provided URL.
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(ProfessorRegister.this, response, Toast.LENGTH_LONG).show();
+//                    if (!response.contains("False")) {
+//                        goToPage(response);
+//                    }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("VOLLEY", error.toString());
+                Toast.makeText(ProfessorRegister.this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("perfil", optValue);
+                params.put("codigo_professores", codProf.getText().toString());
+                params.put("first_name", nameProf.getText().toString());
+                params.put("serie_id", "");
+                params.put("email_responsavel", emailProf.getText().toString());
+                params.put("email_responsavel2", "");
+                params.put("responsavel", "");
+                params.put("genero", genValue);
+                params.put("password", passwordProf.getText().toString());
+                params.put("username", "");
+                return params;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(postRequest);
+
     }
 }
 

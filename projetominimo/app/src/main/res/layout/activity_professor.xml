@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#e7f4d7"
-    tools:context=".MainActivity">
+    tools:context=".ProfessorRegister">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
         android:text="VALIDAR"
         android:layout_gravity="center_horizontal"/>
 
+
     <EditText
         android:id="@+id/nameProf"
         android:layout_width="match_parent"
@@ -58,7 +59,16 @@
         android:hint="@string/nome"
         android:visibility="gone"
         />
-
+    <TextView
+        android:id="@+id/textgeneroProf"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="escolha genero"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"/>
     <ListView
         android:id="@+id/listaGenero"
         android:visibility="gone"
@@ -93,7 +103,7 @@
 
     <EditText
         android:visibility="gone"
-        android:id="@+id/emailProf"
+        android:id="@+id/emailprof"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail"
