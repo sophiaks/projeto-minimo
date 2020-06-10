@@ -57,7 +57,8 @@ public class Home extends AppCompatActivity {
     Intent loginPage;
     JSONObject login;
     Bundle extras;
-
+    String serie;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,14 +66,6 @@ public class Home extends AppCompatActivity {
 
         // Locate the ViewPager in activity_home.xml
         viewPager = findViewById(R.id.pager);
-
-        mQueue = Volley.newRequestQueue(this);
-        linkedTitle = new LinkedList<String>();
-        linkedVimeo= new LinkedList<String>();
-        linkedThumb= new LinkedList<String>();
-        linkedCategory= new LinkedList<String>();
-        linkedVimeoUrl = new LinkedList<String>();
-        jsonParse();
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -84,11 +77,27 @@ public class Home extends AppCompatActivity {
                 e.printStackTrace();
             };
         }
+        try {
+            serie = login.getString("serie").toString();
+            id = login.getString("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d("id", serie + " " + id);
+
+        mQueue = Volley.newRequestQueue(this);
+        linkedTitle = new LinkedList<String>();
+        linkedVimeo= new LinkedList<String>();
+        linkedThumb= new LinkedList<String>();
+        linkedCategory= new LinkedList<String>();
+        linkedVimeoUrl = new LinkedList<String>();
+        jsonParse();
+
 
     }
 
     private void jsonParse(){
-        String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/5/54829/";
+        String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/"+serie+"/"+id+"/";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
