@@ -63,7 +63,7 @@ public class StudentRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
-        ListView listaGenero = findViewById(R.id.listaGeneroStudent);
+        Spinner listaGenero = findViewById(R.id.listaGeneroStudent);
         Spinner listaSerie = findViewById(R.id.listaSerie);
         nameStudent = findViewById(R.id.nameStudent);
         confirmPassword = false;
@@ -78,28 +78,26 @@ public class StudentRegister extends AppCompatActivity {
         passwordConfStudent = findViewById(R.id.passwordConfStudent);
         btnValid = findViewById(R.id.validBtton_student);
         btnregister = findViewById(R.id.btnFinish_Student);
-        listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         types = new String[]{"Escolha a série", "E.I. - 4 anos", "E.I. - 5 anos", "E.F. I - 1° ano","E.F. I - 2° ano","E.F. I - 3° ano",
                 "E.F. I - 4° ano","E.F. I - 5° ano", "E.F. II - 6° ano","E.F. II - 7° ano","E.F. II - 8° ano","E.F. II - 9° ano",
                 "E.M. - 1ª Série","E.M. - 2ª Série","E.M. - 3ª Série"};
-        // create adapter using array from resources file
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.names,
-                android.R.layout.simple_list_item_single_choice);
+        //
+        names = getResources().getStringArray(R.array.names);
+        ptypes = getResources().getStringArray(R.array.ptypes);
+        codAluno = findViewById(R.id.cod_student);
+        queue = Volley.newRequestQueue(this);
+
+//        create adapter using array from resources file
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, names);
 //        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
 //                this, R.array.seriestypes,
 //                android.R.layout.simple_list_item_single_choice);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
 //set the spinners adapter to the previously created one.
-        listaSerie.setAdapter(adapter);
         listaGenero.setAdapter(adapter);
         listaSerie.setAdapter(adapter2);
         // get array from resources file
-        names = getResources().getStringArray(R.array.names);
-        ptypes = getResources().getStringArray(R.array.ptypes);
-        codAluno = findViewById(R.id.cod_student);
-        queue = Volley.newRequestQueue(this);
 
         buttonHomea.setOnClickListener((view) -> {
             Intent intentRegister = new Intent(this, MainActivity.class);
@@ -107,10 +105,16 @@ public class StudentRegister extends AppCompatActivity {
             //finish();
         });
 
-        listaGenero.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                CharSequence gen_value = (CharSequence) listaGenero.getItemAtPosition(position); //
-                genValue = gen_value.toString(); //getter method
+        listaGenero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                genValue = listaGenero.getItemAtPosition(position).toString(); //
+                //getter method
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
             }
         });
         listaSerie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()

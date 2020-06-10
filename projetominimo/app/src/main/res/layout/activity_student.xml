@@ -132,16 +132,17 @@
         android:background="#406412"
         android:text="Escolha o gênero"/>
 
-    <ListView
-        android:id="@+id/listaGeneroStudent"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/listaGeneroStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="5dp"
+            android:divider="#e7f4d7"
+            android:textColorHint="#698b91"
+            android:textColorHighlight="#d6e015"
+            android:spinnerMode="dropdown">
+        </Spinner>
 
     <TextView
         android:id="@+id/textSerie"
