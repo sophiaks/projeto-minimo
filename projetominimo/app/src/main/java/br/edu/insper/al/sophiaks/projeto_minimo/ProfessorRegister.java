@@ -74,12 +74,13 @@ public class ProfessorRegister extends AppCompatActivity {
         TextView textdataProf = findViewById(R.id.textdataProf);
         textOptProf = findViewById(R.id.textOptProf);
         emailProf = findViewById(R.id.emailprof);
+        String hint_email = emailProf.getText().toString();
         passwordProf = findViewById(R.id.passwordProf);
         passwordConfProf = findViewById(R.id.passwordConfProf);
         btnValid = findViewById(R.id.validBtton);
         btnregister = findViewById(R.id.btnFinish);
         ImageButton buttonHomep = findViewById(R.id.button_homep);
-
+        String hint_name = nameProf.getText().toString();
 
         // get array from resources file
         genlist = getResources().getStringArray(R.array.names);
@@ -173,13 +174,19 @@ public class ProfessorRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-            if (passwordConfProf.getText().toString().equals(passwordProf.getText().toString())){
-                doRegister();
-                Intent intentRegister = new Intent(this, MainActivity.class);
-                startActivity(intentRegister);
+            if (nameProf.getText().toString().equals(hint_name) || emailProf.getText().toString().equals(hint_email)){
+                Toast.makeText(ProfessorRegister.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(ProfessorRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
+                if (passwordConfProf.getText().toString().equals(passwordProf.getText().toString())){
+                    doRegister();
+                    Intent intentRegister = new Intent(this, MainActivity.class);
+                    startActivity(intentRegister);
+                } else {
+                    Toast.makeText(ProfessorRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
+                }
             }
+
+
         });
     }
     public void doRegister(){
