@@ -55,6 +55,10 @@ public class StudentRegister extends AppCompatActivity {
     Button btnregister;
     EditText codAluno;
     String[] types;
+    boolean confirmPassword;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +66,7 @@ public class StudentRegister extends AppCompatActivity {
         ListView listaGenero = findViewById(R.id.listaGeneroStudent);
         Spinner listaSerie = findViewById(R.id.listaSerie);
         nameStudent = findViewById(R.id.nameStudent);
-
+        confirmPassword = false;
         username = findViewById(R.id.nomeusuario);
         nameRes = findViewById(R.id.nomeres);
         TextView textGen = findViewById(R.id.textgeneroStudent);
@@ -214,12 +218,19 @@ public class StudentRegister extends AppCompatActivity {
         });
         btnregister.setOnClickListener((view) -> {
             if (serieValue != "0"){
-                doRegister();
-                Intent intentRegister = new Intent(this, MainActivity.class);
-                startActivity(intentRegister);
-            } else{
+                if (passwordConfStudent.getText().toString().equals(passwordStudent.getText().toString())){
+                    doRegister();
+                    Intent intentRegister = new Intent(this, MainActivity.class);
+                    startActivity(intentRegister);
+                } else{
+                    Toast.makeText(StudentRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
+                }
+            }
+            else{
                 Toast.makeText(StudentRegister.this, "Escolha uma série!", Toast.LENGTH_LONG).show();
             }
+
+
 
         });
     }
