@@ -50,7 +50,8 @@
                 android:hint="CÓDIGO"
                 android:inputType="textCapSentences"
                 android:layout_marginBottom="10dp"
-                android:imeOptions="actionDone"/>
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
             <Button
                 android:id="@+id/validBtton_student"
                 android:layout_width="wrap_content"
@@ -98,6 +99,7 @@
         android:inputType="textPersonName"
         android:hint="@string/nome"
         android:visibility="gone"
+        android:singleLine="true"
         />
     <TextView
         android:id="@+id/textgeneroStudent"
@@ -180,6 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Nome de usuário"
+        android:singleLine="true"
         />
 
     <TextView
@@ -200,6 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="textPassword"
+        android:singleLine="true"
         android:hint="Senha"
         />
 
@@ -222,6 +226,7 @@
         android:layout_width="match_parent"
         android:inputType="textPassword"
         android:hint="Confirmação da Senha"
+        android:singleLine="true"
         />
 
     <TextView
@@ -258,6 +263,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:hint="Nome completo do responsável"
+    android:singleLine="true"
     />
 
     <TextView
@@ -278,6 +284,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail do responsável"
+        android:singleLine="true"
         />
 
     <TextView
@@ -298,6 +305,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail do segundo responsável"
+        android:singleLine="true"
         />
 
 
