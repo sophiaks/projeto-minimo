@@ -42,6 +42,5 @@ public class HomeRegister extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
     }
 }

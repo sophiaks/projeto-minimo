@@ -40,7 +40,6 @@ import java.util.Map;
 public class StudentRegister extends AppCompatActivity {
     RequestQueue queue;
     final String LOG_TAG = "myLogs";
-    int cad;
     String[] names;
     String[] ptypes;
     EditText nameStudent;
@@ -216,17 +215,17 @@ public class StudentRegister extends AppCompatActivity {
         btnregister.setOnClickListener((view) -> {
             if (serieValue != "0"){
                 doRegister();
+                Intent intentRegister = new Intent(this, MainActivity.class);
+                startActivity(intentRegister);
             } else{
-
+                Toast.makeText(StudentRegister.this, "Escolha uma série!", Toast.LENGTH_LONG).show();
             }
-            Toast.makeText(StudentRegister.this, "Escolha uma série!", Toast.LENGTH_LONG).show();
-            Intent intentRegister = new Intent(this, MainActivity.class);
-            startActivity(intentRegister);
+
         });
     }
     public void doRegister(){
         // Instantiate the RequestQueue.
-        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
+        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";
         // Request a string response from the provided URL.
         StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

@@ -110,16 +110,17 @@
         android:background="#406412"/>
 
 
-    <ListView
-        android:id="@+id/listaGenero"
+    <Spinner
         android:visibility="gone"
+        android:id="@+id/listaGenero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="5dp"
         android:divider="#e7f4d7"
         android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
+        android:textColorHighlight="#d6e015"
+        android:spinnerMode="dropdown">
+    </Spinner>
 
     <TextView
         android:id="@+id/textOptProf"
@@ -134,7 +135,8 @@
         android:textSize="16dp"
         android:textColor="#e7f4d7"
         android:background="#406412"/>
-    <ListView
+
+    <Spinner
         android:visibility="gone"
         android:id="@+id/optProfessor"
         android:layout_width="match_parent"
@@ -142,8 +144,9 @@
         android:dividerHeight="5dp"
         android:divider="#e7f4d7"
         android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
+        android:textColorHighlight="#d6e015"
+        android:spinnerMode="dropdown">
+    </Spinner>
 
     <Button
         android:visibility="gone"

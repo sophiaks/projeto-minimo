@@ -18,6 +18,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,8 +67,8 @@ public class ProfessorRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_professor);
-        ListView listaGenero = findViewById(R.id.listaGenero);
-        ListView optProfessor = findViewById(R.id.optProfessor);
+        Spinner listaGenero = findViewById(R.id.listaGenero);
+        Spinner optProfessor = findViewById(R.id.optProfessor);
         nameProf = findViewById(R.id.nameProf);
         TextView textgen = findViewById(R.id.textgeneroProf);
         textOptProf = findViewById(R.id.textOptProf);
@@ -78,15 +79,26 @@ public class ProfessorRegister extends AppCompatActivity {
         btnregister = findViewById(R.id.btnFinish);
         ImageButton buttonHomep = findViewById(R.id.button_homep);
 
-        listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        optProfessor.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         // create adapter using array from resources file
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.names,
                 android.R.layout.simple_list_item_single_choice);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-                this, R.array.ptypes,
-                android.R.layout.simple_list_item_single_choice);
+//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+//                this, R.array.ptypes,
+//                android.R.layout.simple_list_item_single_choice);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
+        optProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
         listaGenero.setAdapter(adapter);
         optProfessor.setAdapter(adapter2);
         // get array from resources file
