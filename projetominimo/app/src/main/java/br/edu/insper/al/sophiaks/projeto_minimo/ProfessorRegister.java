@@ -75,6 +75,7 @@ public class ProfessorRegister extends AppCompatActivity {
         btnValid = findViewById(R.id.validBtton);
         btnregister = findViewById(R.id.btnFinish);
         ImageButton buttonHomep = findViewById(R.id.button_homep);
+
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         optProfessor.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         // create adapter using array from resources file
@@ -158,6 +159,8 @@ public class ProfessorRegister extends AppCompatActivity {
         });
         btnregister.setOnClickListener((view) -> {
             doRegister();
+            Intent intentRegister = new Intent(this, MainActivity.class);
+            startActivity(intentRegister);
         });
     }
     public void doRegister(){
