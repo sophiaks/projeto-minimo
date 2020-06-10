@@ -3,6 +3,7 @@ package br.edu.insper.al.sophiaks.projeto_minimo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +23,13 @@ public class HomeRegister extends AppCompatActivity {
 
         Button buttonProfessor = findViewById(R.id.button_professor);
         Button buttonStudent = findViewById(R.id.button_student);
+        ImageButton buttonHome = findViewById(R.id.button_home);
+
+        buttonHome.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         buttonProfessor.setOnClickListener((view) -> {
             Intent intent = new Intent(this, ProfessorRegister.class);

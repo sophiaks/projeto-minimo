@@ -1,5 +1,6 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +66,7 @@ public class StudentRegister extends AppCompatActivity {
         nameRes = findViewById(R.id.nomeres);
         TextView textGen = findViewById(R.id.textgeneroStudent);
         TextView textSerie = findViewById(R.id.textSerie);
+        ImageButton buttonHomea = findViewById(R.id.button_homea);
         emailRes1 = findViewById(R.id.emailres1);
         emailRes2 = findViewById(R.id.emailres2);
         passwordStudent = findViewById(R.id.passwordStudent);
@@ -86,6 +89,12 @@ public class StudentRegister extends AppCompatActivity {
         ptypes = getResources().getStringArray(R.array.ptypes);
         codAluno = findViewById(R.id.cod_student);
         queue = Volley.newRequestQueue(this);
+
+        buttonHomea.setOnClickListener((view) -> {
+            Intent intentRegister = new Intent(this, MainActivity.class);
+            startActivity(intentRegister);
+            //finish();
+        });
 
         listaGenero.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
@@ -191,6 +200,8 @@ public class StudentRegister extends AppCompatActivity {
         });
         btnregister.setOnClickListener((view) -> {
             doRegister();
+            Intent intentRegister = new Intent(this, MainActivity.class);
+            startActivity(intentRegister);
         });
     }
     public void doRegister(){
