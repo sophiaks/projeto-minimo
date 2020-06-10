@@ -58,7 +58,7 @@ public class StudentRegister extends AppCompatActivity {
         setContentView(R.layout.activity_student);
         ListView listaGenero = findViewById(R.id.listaGeneroStudent);
         ListView listaSerie = findViewById(R.id.listaSerie);
-        nameStudent = findViewById(R.id.nameProf);
+        nameStudent = findViewById(R.id.nameStudent);
 
         username = findViewById(R.id.nomeusuario);
         nameRes = findViewById(R.id.nomeres);
@@ -96,13 +96,55 @@ public class StudentRegister extends AppCompatActivity {
         listaSerie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 serieValue = String.valueOf(position); //getter method
+                if (position ==0){
+                    serieValue = "19";;
+                }
+                else if (position ==1){
+                    serieValue = "20";
+                }
+                else if (position ==2){  //EFI 1 ano
+                    serieValue = "5";
+                }
+                else if (position ==3){
+                    serieValue = "6";
+                }
+                else if (position ==4){
+                    serieValue = "7";
+                }
+                else if (position ==5){
+                    serieValue = "8";
+                }
+                else if (position ==6){
+                    serieValue = "9";
+                }
+                else if (position ==7){
+                    serieValue = "1";
+                }
+                else if (position ==8){
+                    serieValue = "2";
+                }
+                else if (position ==9){
+                    serieValue = "3";
+                }
+                else if (position ==10){
+                    serieValue = "4";
+                }
+                else if (position ==11){
+                    serieValue = "10";
+                }
+                else if (position ==12){
+                    serieValue = "11";
+                }
+                else if (position ==13){
+                    serieValue = "12";
+                }
             }
         });
 
 
         btnValid.setOnClickListener((view) -> {
-            String codProfessor = codAluno.getText().toString();
-            String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_professores=" + "CODA";
+            String codStudent = codAluno.getText().toString();
+            String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_alunos=" + "CODA";
             JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -115,8 +157,10 @@ public class StudentRegister extends AppCompatActivity {
                         emailRes2.setVisibility(View.VISIBLE);
                         username.setVisibility(View.VISIBLE);
                         btnregister.setVisibility(View.VISIBLE);
+                        passwordConfStudent.setVisibility(View.VISIBLE);
+                        passwordStudent.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(ProfessorRegister.this, "Código inválido", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StudentRegister.this, "Código inválido", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -144,47 +188,44 @@ public class StudentRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-            doRegister();
+//            doRegister();
         });
     }
-    public void doRegister(){
-        // Instantiate the RequestQueue.
-        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
-        // Request a string response from the provided URL.
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(ProfessorRegister.this, response, Toast.LENGTH_LONG).show();
-//                    if (!response.contains("False")) {
-//                        goToPage(response);
-//                    }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("VOLLEY", error.toString());
-                Toast.makeText(ProfessorRegister.this, error.toString(), Toast.LENGTH_LONG).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("perfil", optValue);
-                params.put("codigo_professores", codProf.getText().toString());
-                params.put("first_name", nameProf.getText().toString());
-                params.put("serie_id", "");
-                params.put("email_responsavel", emailProf.getText().toString());
-                params.put("email_responsavel2", "");
-                params.put("responsavel", "");
-                params.put("genero", genValue);
-                params.put("password", passwordProf.getText().toString());
-                params.put("username", "");
-                return params;
-            }
-        };
-
-        // Add the request to the RequestQueue.
-        queue.add(postRequest);
-
-    }
+//    public void doRegister(){
+//        // Instantiate the RequestQueue.
+//        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
+//        // Request a string response from the provided URL.
+//        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Toast.makeText(StudentRegister.this, response, Toast.LENGTH_LONG).show();
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d("VOLLEY", error.toString());
+//                Toast.makeText(StudentRegister.this, error.toString(), Toast.LENGTH_LONG).show();
+//            }
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("perfil", optValue);
+//                params.put("codigo_professores", codProf.getText().toString());
+//                params.put("first_name", nameProf.getText().toString());
+//                params.put("serie_id", "");
+//                params.put("email_responsavel", emailProf.getText().toString());
+//                params.put("email_responsavel2", "");
+//                params.put("responsavel", "");
+//                params.put("genero", genValue);
+//                params.put("password", passwordProf.getText().toString());
+//                params.put("username", "");
+//                return params;
+//            }
+//        };
+//
+//        // Add the request to the RequestQueue.
+//        queue.add(postRequest);
+//
+//    }
 }
