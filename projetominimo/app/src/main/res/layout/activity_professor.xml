@@ -14,6 +14,7 @@
         android:layout_alignParentTop="true"
         android:background="#1b2c2c"
         tools:ignore="MissingConstraints">
+
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -31,24 +32,33 @@
             android:paddingTop="8dp"/>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/cod_prof"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
-        android:hint="CÓDIGO"
-        android:inputType="textCapSentences"
-        android:layout_marginBottom="10dp"
-        android:imeOptions="actionDone"/>
-    <Button
-        android:id="@+id/validBtton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VALIDAR"
-        android:layout_gravity="center_horizontal"/>
+        <EditText
+            android:id="@+id/cod_prof"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:textSize="25dp"
+            android:hint="CÓDIGO"
+            android:inputType="textCapSentences"
+            android:layout_marginBottom="10dp"
+            android:imeOptions="actionDone"/>
+        <Button
+            android:id="@+id/validBtton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VALIDAR"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="13dp"
+            android:textColor="#e7f4d7"
+            android:background="#1b2c2c"/>
+
+    </RelativeLayout>
+
 
 
     <EditText
@@ -59,47 +69,6 @@
         android:hint="@string/nome"
         android:visibility="gone"
         />
-    <TextView
-        android:id="@+id/textgeneroProf"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="escolha genero"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"/>
-    <ListView
-        android:id="@+id/listaGenero"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
-
-    <TextView
-        android:id="@+id/textOptProf"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="@string/escolha_o_tipo_de_professor_que_voc"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"/>
-    <ListView
-        android:visibility="gone"
-        android:id="@+id/optProfessor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
 
     <EditText
         android:visibility="gone"
@@ -124,6 +93,53 @@
         android:layout_width="match_parent"
         android:hint="Confirmação da Senha"
         />
+
+    <TextView
+        android:id="@+id/textgeneroProf"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="escolha genero"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"/>
+
+
+    <ListView
+        android:id="@+id/listaGenero"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="5dp"
+        android:divider="#e7f4d7"
+        android:textColorHint="#698b91"
+        android:textColorHighlight="#d6e015">
+    </ListView>
+
+    <TextView
+        android:id="@+id/textOptProf"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="60dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/escolha_o_tipo_de_professor_que_voc"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16dp"
+        android:textColor="#e7f4d7"
+        android:background="#406412"/>
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/optProfessor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="5dp"
+        android:divider="#e7f4d7"
+        android:textColorHint="#698b91"
+        android:textColorHighlight="#d6e015">
+    </ListView>
 
     <Button
         android:visibility="gone"
