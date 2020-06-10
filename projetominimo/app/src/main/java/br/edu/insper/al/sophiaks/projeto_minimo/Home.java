@@ -84,6 +84,7 @@ public class Home extends AppCompatActivity {
                 e.printStackTrace();
             };
         }
+
     }
 
     private void jsonParse(){
