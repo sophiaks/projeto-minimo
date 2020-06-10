@@ -195,6 +195,7 @@ public class ProfessorRegister extends AppCompatActivity {
                 params.put("genero", genValue);
                 params.put("password", passwordProf.getText().toString());
                 params.put("username", "");
+                Log.v("json professor", params.toString());
                 return params;
             }
         };

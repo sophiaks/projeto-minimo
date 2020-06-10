@@ -233,6 +233,7 @@ public class StudentRegister extends AppCompatActivity {
                 params.put("genero", genValue);
                 params.put("password", passwordStudent.getText().toString());
                 params.put("username", username.getText().toString());
+                Log.v("json aluno", params.toString());
                 return params;
             }
         };
