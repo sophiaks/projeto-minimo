@@ -10,10 +10,8 @@
         android:orientation="vertical"
         android:background="#e7f4d7"
         tools:context=".StudentRegister">
-
-
-
-    <RelativeLayout
+        
+<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
@@ -37,82 +35,48 @@
     </RelativeLayout>
 
 
-    <EditText
-        android:id="@+id/cod_student"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
-        android:hint="CÓDIGO"
-        android:inputType="textCapSentences"
-        android:layout_marginBottom="10dp"
-        android:imeOptions="actionDone"/>
-    <Button
-        android:id="@+id/validBtton_studen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VALIDAR"
-        android:layout_gravity="center_horizontal"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/cod_student"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:textSize="25dp"
+                android:hint="CÓDIGO"
+                android:inputType="textCapSentences"
+                android:layout_marginBottom="10dp"
+                android:imeOptions="actionDone"/>
+            <Button
+                android:id="@+id/validBtton_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VALIDAR"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="13dp"
+                android:textColor="#e7f4d7"
+                android:background="#1b2c2c"/>
 
-    <EditText
-        android:id="@+id/nameStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/nome"
-        android:visibility="gone"
-        />
-    <TextView
-        android:id="@+id/textgeneroStudent"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="escolha genero"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"/>
-    <ListView
-        android:id="@+id/listaGeneroStudent"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textSerie"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="Escolha a serie"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"/>
-    <ListView
-        android:visibility="gone"
-        android:id="@+id/listaSerie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
-
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/nomeusuario"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="Nome de usuário"
-        />
+        <EditText
+            android:id="@+id/nameStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/nome"
+            android:visibility="gone"
+            />
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/nomeusuario"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Nome de usuário"
+            />
 
     <EditText
         android:visibility="gone"
@@ -153,16 +117,68 @@
         android:hint="Confirmação da Senha"
         />
 
+    <TextView
+        android:id="@+id/textgeneroStudent"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="135dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16dp"
+        android:textColor="#e7f4d7"
+        android:background="#406412"
+        android:text="Escolha o gênero"/>
+
+    <ListView
+        android:id="@+id/listaGeneroStudent"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:dividerHeight="5dp"
+        android:divider="#e7f4d7"
+        android:textColorHint="#698b91"
+        android:textColorHighlight="#d6e015">
+    </ListView>
+
+    <TextView
+        android:id="@+id/textSerie"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="135dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16dp"
+        android:textColor="#e7f4d7"
+        android:background="#406412"
+        android:text="Escolha a serie"/>
+
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/listaSerie"
+        android:layout_width="match_parent"
+        android:layout_height="800dp"
+        android:dividerHeight="5dp"
+        android:divider="#e7f4d7"
+        android:textColorHint="#698b91"
+        android:textColorHighlight="#d6e015">
+    </ListView>
+
     <Button
         android:visibility="gone"
         android:id="@+id/btnFinish_Student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="#d6e015"
         android:textColor="#024121"
         android:text="@string/cadastrar"
         android:layout_gravity="center_horizontal">
     </Button>
+
     </LinearLayout>
 </ScrollView>

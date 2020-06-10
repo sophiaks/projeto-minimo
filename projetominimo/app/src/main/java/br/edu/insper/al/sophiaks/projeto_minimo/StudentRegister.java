@@ -62,13 +62,13 @@ public class StudentRegister extends AppCompatActivity {
 
         username = findViewById(R.id.nomeusuario);
         nameRes = findViewById(R.id.nomeres);
-
+        TextView textGen = findViewById(R.id.textgeneroStudent);
         TextView textSerie = findViewById(R.id.textSerie);
         emailRes1 = findViewById(R.id.emailres1);
         emailRes2 = findViewById(R.id.emailres2);
         passwordStudent = findViewById(R.id.passwordStudent);
         passwordConfStudent = findViewById(R.id.passwordConfStudent);
-        btnValid = findViewById(R.id.validBtton_studen);
+        btnValid = findViewById(R.id.validBtton_student);
         btnregister = findViewById(R.id.btnFinish_Student);
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listaSerie.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -149,6 +149,7 @@ public class StudentRegister extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     if (response != null) {
+                        textGen.setVisibility(View.VISIBLE);
                         nameStudent.setVisibility(View.VISIBLE);
                         listaGenero.setVisibility(View.VISIBLE);
                         textSerie.setVisibility(View.VISIBLE);
