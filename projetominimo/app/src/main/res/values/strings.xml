@@ -19,5 +19,21 @@
         <item>Professor Aplicador</item>
         <item>Professor Não Aplicador</item>
     </string-array>
+    <string-array name="seriestypes">
+        <item>E.I. - 4 anos</item>
+        <item>E.I. - 5 anos</item>
+        <item>E.F. I - 1° ano</item>
+        <item>E.F. I - 2° ano</item>
+        <item>E.F. I - 3° ano</item>
+        <item>E.F. I - 4° ano</item>
+        <item>E.F. I - 5° ano</item>
+        <item>E.F. II - 6° ano</item>
+        <item>E.F. II - 7° ano</item>
+        <item>E.F. II - 8° ano</item>
+        <item>E.F. II - 9° ano</item>
+        <item>E.M. - 1ª Série</item>
+        <item>E.M. - 2ª Série</item>
+        <item>E.M. - 3ª Série</item>
+    </string-array>
     android.permission.INTERNET
 </resources>

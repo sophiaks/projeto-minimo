@@ -81,7 +81,7 @@
     </ListView>
 
     <TextView
-        android:id="@+id/listaSerie"
+        android:id="@+id/textSerie"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         android:textSize="20dp"/>
     <ListView
         android:visibility="gone"
-        android:id="@+id/optProfessor"
+        android:id="@+id/listaSerie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="5dp"
@@ -103,15 +103,38 @@
 
     <EditText
         android:visibility="gone"
-        android:id="@+id/emailprof"
+        android:id="@+id/nomeusuario"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:hint="E-mail"
+        android:hint="Nome de usuário"
         />
 
     <EditText
         android:visibility="gone"
-        android:id="@+id/passwordProf"
+        android:id="@+id/nomeres"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Nome completo do responsável"
+        />
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/emailres1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="E-mail do primeiro responsável"
+        />
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/emailres2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="e-mail do segundo responsável"
+        />
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/passwordStudent"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Senha"
@@ -119,7 +142,7 @@
 
     <EditText
         android:visibility="gone"
-        android:id="@+id/passwordConfProf"
+        android:id="@+id/passwordConfStudent"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Confirmação da Senha"
@@ -127,7 +150,7 @@
 
     <Button
         android:visibility="gone"
-        android:id="@+id/btnFinish"
+        android:id="@+id/btnFinish_Student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
