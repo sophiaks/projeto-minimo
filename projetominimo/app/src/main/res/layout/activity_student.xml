@@ -107,6 +107,7 @@
         android:id="@+id/passwordStudent"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:hint="Senha"
         />
 
@@ -115,6 +116,7 @@
         android:id="@+id/passwordConfStudent"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:hint="Confirmação da Senha"
         />
 

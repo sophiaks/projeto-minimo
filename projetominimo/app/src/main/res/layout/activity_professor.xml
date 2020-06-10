@@ -84,6 +84,7 @@
         android:id="@+id/passwordProf"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:hint="Senha"
         />
 
@@ -92,6 +93,7 @@
         android:id="@+id/passwordConfProf"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:hint="Confirmação da Senha"
         />
 
