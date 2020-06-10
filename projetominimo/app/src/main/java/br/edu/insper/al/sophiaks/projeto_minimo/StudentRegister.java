@@ -159,6 +159,7 @@ public class StudentRegister extends AppCompatActivity {
                         btnregister.setVisibility(View.VISIBLE);
                         passwordConfStudent.setVisibility(View.VISIBLE);
                         passwordStudent.setVisibility(View.VISIBLE);
+                        nameRes.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(StudentRegister.this, "Código inválido", Toast.LENGTH_SHORT).show();
                     }
@@ -188,44 +189,44 @@ public class StudentRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-//            doRegister();
+            doRegister();
         });
     }
-//    public void doRegister(){
-//        // Instantiate the RequestQueue.
-//        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
-//        // Request a string response from the provided URL.
-//        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Toast.makeText(StudentRegister.this, response, Toast.LENGTH_LONG).show();
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d("VOLLEY", error.toString());
-//                Toast.makeText(StudentRegister.this, error.toString(), Toast.LENGTH_LONG).show();
-//            }
-//        }) {
-//            @Override
-//            protected Map<String, String> getParams() {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("perfil", optValue);
-//                params.put("codigo_professores", codProf.getText().toString());
-//                params.put("first_name", nameProf.getText().toString());
-//                params.put("serie_id", "");
-//                params.put("email_responsavel", emailProf.getText().toString());
-//                params.put("email_responsavel2", "");
-//                params.put("responsavel", "");
-//                params.put("genero", genValue);
-//                params.put("password", passwordProf.getText().toString());
-//                params.put("username", "");
-//                return params;
-//            }
-//        };
-//
-//        // Add the request to the RequestQueue.
-//        queue.add(postRequest);
-//
-//    }
+    public void doRegister(){
+        // Instantiate the RequestQueue.
+        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
+        // Request a string response from the provided URL.
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(StudentRegister.this, response, Toast.LENGTH_LONG).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("VOLLEY", error.toString());
+                Toast.makeText(StudentRegister.this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("perfil", "Aluno");
+                params.put("codigo_alunos", codAluno.getText().toString());
+                params.put("first_name", nameStudent.getText().toString());
+                params.put("serie_id", serieValue);
+                params.put("email_responsavel", emailRes1.getText().toString());
+                params.put("email_responsavel2", emailRes2.getText().toString());
+                params.put("responsavel", nameRes.getText().toString());
+                params.put("genero", genValue);
+                params.put("password", passwordStudent.getText().toString());
+                params.put("username", username.getText().toString());
+                return params;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(postRequest);
+
+    }
 }
