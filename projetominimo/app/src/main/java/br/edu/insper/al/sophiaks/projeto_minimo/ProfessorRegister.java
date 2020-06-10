@@ -106,7 +106,7 @@ public class ProfessorRegister extends AppCompatActivity {
 
         btnValid.setOnClickListener((view) -> {
                 String codProfessor = codProf.getText().toString();
-                String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_professores=" + "CODP";
+                String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_professores=" + codProfessor;
                 JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -136,7 +136,7 @@ public class ProfessorRegister extends AppCompatActivity {
                     } else if (volleyError instanceof AuthFailureError) {
                         message = "Cannot connect to Internet...Please check your connection!";
                     } else if (volleyError instanceof ParseError) {
-                        message = "Parsing error! Please try again after some time!!";
+                        message = "Código da Escola Inválido";
                     } else if (volleyError instanceof NoConnectionError) {
                         message = "Cannot connect to Internet...Please check your connection!";
                     } else if (volleyError instanceof TimeoutError) {

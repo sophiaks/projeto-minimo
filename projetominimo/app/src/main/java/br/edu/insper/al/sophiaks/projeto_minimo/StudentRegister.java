@@ -144,7 +144,7 @@ public class StudentRegister extends AppCompatActivity {
 
         btnValid.setOnClickListener((view) -> {
             String codStudent = codAluno.getText().toString();
-            String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_alunos=" + "CODA";
+            String url = "http://plataformasementedev.minimo.com.br/escolas/api/list?format=json&codigo_alunos=" + codStudent;
             JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
