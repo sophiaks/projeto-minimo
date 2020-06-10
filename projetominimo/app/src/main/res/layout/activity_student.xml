@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#e7f4d7"
-    tools:context=".StudentRegister">
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#e7f4d7"
+        tools:context=".StudentRegister">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -73,7 +78,7 @@
         android:id="@+id/listaGeneroStudent"
         android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:dividerHeight="5dp"
         android:divider="#e7f4d7"
         android:textColorHint="#698b91"
@@ -159,4 +164,5 @@
         android:text="@string/cadastrar"
         android:layout_gravity="center_horizontal">
     </Button>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
