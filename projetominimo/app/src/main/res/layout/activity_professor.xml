@@ -15,7 +15,8 @@
         android:background="#1b2c2c"
         tools:ignore="MissingConstraints">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/button_homep"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@mipmap/ic_launcher"

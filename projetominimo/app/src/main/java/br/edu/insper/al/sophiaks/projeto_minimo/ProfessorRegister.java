@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ public class ProfessorRegister extends AppCompatActivity {
         passwordConfProf = findViewById(R.id.passwordConfProf);
         btnValid = findViewById(R.id.validBtton);
         btnregister = findViewById(R.id.btnFinish);
+        ImageButton buttonHomep = findViewById(R.id.button_homep);
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         optProfessor.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         // create adapter using array from resources file
@@ -89,6 +91,12 @@ public class ProfessorRegister extends AppCompatActivity {
         ptypes = getResources().getStringArray(R.array.ptypes);
         codProf = findViewById(R.id.cod_prof);
         queue = Volley.newRequestQueue(this);
+
+        buttonHomep.setOnClickListener((view) -> {
+            Intent intentRegister = new Intent(this, MainActivity.class);
+            startActivity(intentRegister);
+            //finish();
+        });
 
         listaGenero.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
