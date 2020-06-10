@@ -40,7 +40,7 @@ import java.util.Map;
 public class StudentRegister extends AppCompatActivity {
     RequestQueue queue;
     final String LOG_TAG = "myLogs";
-
+    int cad;
     String[] names;
     String[] ptypes;
     EditText nameStudent;
@@ -77,7 +77,7 @@ public class StudentRegister extends AppCompatActivity {
         btnregister = findViewById(R.id.btnFinish_Student);
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-        types = new String[]{"E.I. - 4 anos", "E.I. - 5 anos", "E.F. I - 1° ano","E.F. I - 2° ano","E.F. I - 3° ano",
+        types = new String[]{"Escolha a série", "E.I. - 4 anos", "E.I. - 5 anos", "E.F. I - 1° ano","E.F. I - 2° ano","E.F. I - 3° ano",
                 "E.F. I - 4° ano","E.F. I - 5° ano", "E.F. II - 6° ano","E.F. II - 7° ano","E.F. II - 8° ano","E.F. II - 9° ano",
                 "E.M. - 1ª Série","E.M. - 2ª Série","E.M. - 3ª Série"};
         // create adapter using array from resources file
@@ -115,45 +115,48 @@ public class StudentRegister extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
                 if (position ==0){
+                    serieValue = "0";
+                }
+                else if (position == 1){
                     serieValue = "19";
                 }
-                else if (position ==1){
+                else if (position ==2){
                     serieValue = "20";
                 }
-                else if (position ==2){  //EFI 1 ano
+                else if (position ==3){  //EFI 1 ano
                     serieValue = "5";
                 }
-                else if (position ==3){
+                else if (position ==4){
                     serieValue = "6";
                 }
-                else if (position ==4){
+                else if (position ==5){
                     serieValue = "7";
                 }
-                else if (position ==5){
+                else if (position ==6){
                     serieValue = "8";
                 }
-                else if (position ==6){
+                else if (position ==7){
                     serieValue = "9";
                 }
-                else if (position ==7){
+                else if (position ==8){
                     serieValue = "1";
                 }
-                else if (position ==8){
+                else if (position ==9){
                     serieValue = "2";
                 }
-                else if (position ==9){
+                else if (position ==10){
                     serieValue = "3";
                 }
-                else if (position ==10){
+                else if (position ==11){
                     serieValue = "4";
                 }
-                else if (position ==11){
+                else if (position ==12){
                     serieValue = "10";
                 }
-                else if (position ==12){
+                else if (position ==13){
                     serieValue = "11";
                 }
-                else if (position ==13){
+                else if (position ==14){
                     serieValue = "12";
                 }
             } // to close the onItemSelected
@@ -211,7 +214,12 @@ public class StudentRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-            doRegister();
+            if (serieValue != "0"){
+                doRegister();
+            } else{
+
+            }
+            Toast.makeText(StudentRegister.this, "Escolha uma série!", Toast.LENGTH_LONG).show();
             Intent intentRegister = new Intent(this, MainActivity.class);
             startActivity(intentRegister);
         });
