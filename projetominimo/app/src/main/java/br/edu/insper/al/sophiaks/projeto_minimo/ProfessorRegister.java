@@ -174,7 +174,9 @@ public class ProfessorRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-            if (nameProf.getText().toString()!=hint_name && emailProf.getText().toString()!=hint_email){
+            if (nameProf.getText().toString().equals(hint_name) || emailProf.getText().toString().equals(hint_email)){
+                Toast.makeText(ProfessorRegister.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+            } else {
                 if (passwordConfProf.getText().toString().equals(passwordProf.getText().toString())){
                     doRegister();
                     Intent intentRegister = new Intent(this, MainActivity.class);
@@ -182,8 +184,6 @@ public class ProfessorRegister extends AppCompatActivity {
                 } else {
                     Toast.makeText(ProfessorRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
                 }
-            } else {
-                Toast.makeText(ProfessorRegister.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
             }
 
 
