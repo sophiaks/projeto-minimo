@@ -194,7 +194,7 @@ public class ProfessorRegister extends AppCompatActivity {
                 params.put("responsavel", "");
                 params.put("genero", genValue);
                 params.put("password", passwordProf.getText().toString());
-                params.put("username", "");
+                params.put("username", emailProf.getText().toString());
                 Log.v("json professor", params.toString());
                 return params;
             }
