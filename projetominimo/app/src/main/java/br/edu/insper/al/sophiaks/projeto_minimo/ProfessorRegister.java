@@ -49,7 +49,7 @@ public class ProfessorRegister extends AppCompatActivity {
     RequestQueue queue;
     final String LOG_TAG = "myLogs";
     ListView optProfessor;
-    String[] names;
+    String[] genlist;
     String[] ptypes;
     TextView textOptProf;
 
@@ -79,31 +79,18 @@ public class ProfessorRegister extends AppCompatActivity {
         btnregister = findViewById(R.id.btnFinish);
         ImageButton buttonHomep = findViewById(R.id.button_homep);
 
+
+        // get array from resources file
+        genlist = getResources().getStringArray(R.array.names);
+        ptypes = getResources().getStringArray(R.array.ptypes);
         // create adapter using array from resources file
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.names,
-                android.R.layout.simple_list_item_single_choice);
-//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-//                this, R.array.ptypes,
-//                android.R.layout.simple_list_item_single_choice);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
-        optProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, genlist);
 
-            } // to close the onItemSelected
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-
-            }
-        });
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, ptypes);
 
         listaGenero.setAdapter(adapter);
         optProfessor.setAdapter(adapter2);
-        // get array from resources file
-        names = getResources().getStringArray(R.array.names);
-        ptypes = getResources().getStringArray(R.array.ptypes);
+
         codProf = findViewById(R.id.cod_prof);
         queue = Volley.newRequestQueue(this);
 
@@ -113,16 +100,28 @@ public class ProfessorRegister extends AppCompatActivity {
             //finish();
         });
 
-        listaGenero.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-               CharSequence gen_value = (CharSequence) listaGenero.getItemAtPosition(position); //
-               genValue = gen_value.toString(); //getter method
-           }
+        listaGenero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                genValue = listaGenero.getItemAtPosition(position).toString(); //
+                //getter method
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
         });
-        optProfessor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                CharSequence opt_value = (CharSequence) optProfessor.getItemAtPosition(position); //
-                optValue = opt_value.toString(); //getter method
+        optProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                optValue = optProfessor.getItemAtPosition(position).toString(); //
+                //getter method
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
             }
         });
 
