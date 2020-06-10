@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#e7f4d7"
+        android:background="#1b2c2c"
         tools:context=".StudentRegister">
         
 <RelativeLayout
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:text="Aluno"
-            android:textColor="#e7f4d7"
+            android:textColor="#698b91"
             android:textSize="30sp"
             android:paddingLeft="90dp"
             android:paddingTop="8dp"/>
@@ -38,7 +38,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
             <EditText
                 android:id="@+id/cod_student"
@@ -47,8 +48,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
                 android:textSize="25dp"
+                android:textColor="#abbcbf"
                 android:hint="CÓDIGO"
-                android:inputType="textCapSentences"
+                android:textColorHint="#698b91"
+                android:inputType="textCapCharacters"
+                android:textAllCaps="true"
                 android:layout_marginBottom="10dp"
                 android:imeOptions="actionDone"
                 android:singleLine="true"/>
@@ -59,8 +63,7 @@
                 android:text="VALIDAR"
                 android:layout_marginLeft="210dp"
                 android:layout_marginTop="13dp"
-                android:textColor="#e7f4d7"
-                android:background="#1b2c2c"/>
+                android:background="#d6e015" />
 
         </RelativeLayout>
 
@@ -74,9 +77,10 @@
         android:paddingBottom="5dp"
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"
-        android:textColor="#e7f4d7"
+        android:textColor="#698b91"
         android:background="#1b2c2c"
-        android:text="Sobre o aluno:"/>
+        android:text="Sobre o aluno:"
+        android:textAllCaps="true"/>
 
     <TextView
         android:id="@+id/name"
@@ -84,43 +88,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="140dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:layout_marginTop="20dp"
         android:textColor="#1b2c2c"
         android:text="Nome Completo:"
-        android:background="#c4e09e"/>
+        android:background="#d6e015"/>
 
 
     <EditText
         android:id="@+id/nameStudent"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/nome"
-        android:visibility="gone"
+        android:textColorHint="#cacecc"
         android:singleLine="true"
+        android:paddingVertical="20dp"
         />
     <TextView
         android:id="@+id/textgeneroStudent"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
         android:paddingLeft="135dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
         android:text="Escolha o gênero:"
-        android:background="#c4e09e"/>
+        android:background="#d6e015"/>
 
     <Spinner
         android:visibility="gone"
         android:id="@+id/listaGeneroStudent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
+        android:gravity="center"
         android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
+        android:dropDownWidth="match_parent"
+        android:textColorHint="#e7f4d7"
         android:textColorHighlight="#d6e015"
         android:spinnerMode="dropdown">
     </Spinner>
@@ -128,53 +137,71 @@
     <TextView
         android:id="@+id/textSerie"
         android:visibility="gone"
+        android:paddingVertical="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="140dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
+        android:background="#d6e015"
         android:text="Escolha a série:"
-        android:background="#c4e09e"/>
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
 
     <Spinner
-        android:visibility="gone"
         android:id="@+id/listaSerie"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
         android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
+        android:textColorHint="#e7f4d7"
+        android:outlineAmbientShadowColor="#e7f4d7"
         android:textColorHighlight="#d6e015"
+        android:dropDownWidth="match_parent"
+        android:drawSelectorOnTop="true"
         android:spinnerMode="dropdown">
     </Spinner>
 
+        <View
+            android:id="@+id/div"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="360dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="0.5dp"
+            android:background="#d6e015"/>
+
     <TextView
-        android:id="@+id/accessdata"
         android:visibility="gone"
+        android:id="@+id/accessdata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="80dp"
-        android:paddingTop="5dp"
+        android:paddingTop="25dp"
         android:paddingBottom="5dp"
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"
-        android:textColor="#e7f4d7"
+        android:textColor="#b0ce09"
         android:background="#1b2c2c"
+        android:textAllCaps="true"
         android:text="Dados de acesso do aluno:"/>
 
     <TextView
+        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:id="@+id/usernametext"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="130dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
         android:text="Nome de usuário:"
-        android:background="#c4e09e"/>
+        android:background="#b0ce09"/>
 
     <EditText
         android:visibility="gone"
@@ -182,42 +209,47 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Nome de usuário"
+        android:paddingVertical="20dp"
+        android:textColorHint="#cacecc"
         android:singleLine="true"
         />
 
     <TextView
-        android:id="@+id/passwordtext"
         android:visibility="gone"
+        android:id="@+id/passwordtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="170dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
         android:text="Senha:"
-        android:background="#c4e09e"/>
+        android:background="#b0ce09"/>
 
         <EditText
-        android:visibility="gone"
-        android:id="@+id/passwordStudent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        android:hint="Senha"
-        />
+            android:visibility="gone"
+            android:id="@+id/passwordStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            android:textColorHint="#cacecc"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:paddingVertical="20dp"/>
 
-    <TextView
-        android:id="@+id/passwordtextconf"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="130dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Confirme a senha:"
-        android:background="#c4e09e"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/passwordtextconf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="130dp"
+            android:paddingVertical="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18dp"
+            android:textColor="#1b2c2c"
+            android:text="Confirme a senha:"
+            android:background="#b0ce09"/>
 
     <EditText
         android:visibility="gone"
@@ -226,57 +258,73 @@
         android:layout_width="match_parent"
         android:inputType="textPassword"
         android:hint="Confirmação da Senha"
+        android:paddingVertical="20dp"
+        android:textColorHint="#cacecc"
         android:singleLine="true"
         />
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/resptext"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="100dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:textColor="#e7f4d7"
-        android:background="#1b2c2c"
-        android:text="Sobre os Responsáveis:"/>
+        <View
+            android:id="@+id/div1"
+            android:visibility="gone"
+            android:layout_width="360dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="20dp"
+            android:background="#d6e015" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/resptext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="100dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textColor="#91b404 "
+            android:background="#1b2c2c"
+            android:textAllCaps="true"
+            android:text="Sobre os Responsáveis:"/>
 
     <TextView
-        android:id="@+id/respname"
         android:visibility="gone"
+        android:id="@+id/respname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:paddingLeft="75dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
         android:text="Nome completo do Responsável:"
-        android:background="#c4e09e"/>
+        android:background="#91b404 "/>
 
     <EditText
-    android:visibility="gone"
-    android:id="@+id/nomeres"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:hint="Nome completo do responsável"
-    android:singleLine="true"
+        android:visibility="gone"
+        android:id="@+id/nomeres"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Nome completo do responsável"
+        android:textColorHint="#cacecc"
+        android:singleLine="true"
+        android:paddingVertical="20dp"
     />
 
     <TextView
-        android:id="@+id/emailtext_resp"
         android:visibility="gone"
+        android:id="@+id/emailtext_resp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="115dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
-        android:textColor="#1b2c2c"
         android:text="Email do responsável:"
-        android:background="#c4e09e"/>
+        android:background="#91b404"/>
 
     <EditText
         android:visibility="gone"
@@ -284,20 +332,23 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail do responsável"
+        android:paddingVertical="20dp"
         android:singleLine="true"
+        android:textColorHint="#cacecc"
         />
 
     <TextView
-        android:id="@+id/emailtext_resp2"
         android:visibility="gone"
+        android:id="@+id/emailtext_resp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="80dp"
+        android:paddingVertical="20dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
         android:textColor="#1b2c2c"
         android:text="Email do segundo responsável:"
-        android:background="#c4e09e"/>
+        android:background="#91b404 "/>
 
     <EditText
         android:visibility="gone"
@@ -305,17 +356,17 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="E-mail do segundo responsável"
+        android:textColorHint="#cacecc"
         android:singleLine="true"
+        android:paddingVertical="20dp"
         />
-
-
 
     <Button
         android:visibility="gone"
         android:id="@+id/btnFinish_Student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
         android:background="#d6e015"
         android:textColor="#024121"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#e7f4d7"
+    android:background="#1b2c2c"
     tools:context=".ProfessorRegister">
 
     <RelativeLayout
@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:text="@string/professor"
-            android:textColor="#e7f4d7"
+            android:textColor="#698b91"
             android:textSize="30sp"
             android:paddingLeft="90dp"
             android:paddingTop="8dp"/>
@@ -45,6 +45,8 @@
             android:layout_marginLeft="100dp"
             android:textSize="25dp"
             android:hint="CÓDIGO"
+            android:textColor="#abbcbf"
+            android:textColorHint="#698b91"
             android:inputType="textCapSentences"
             android:layout_marginBottom="10dp"
             android:singleLine="true"
@@ -56,8 +58,8 @@
             android:text="VALIDAR"
             android:layout_marginLeft="210dp"
             android:layout_marginTop="13dp"
-            android:textColor="#e7f4d7"
-            android:background="#1b2c2c"/>
+            android:textColor="#024121"
+            android:background="#d6e015"/>
 
     </RelativeLayout>
 
