@@ -70,7 +70,17 @@ public class StudentRegister extends AppCompatActivity {
         username = findViewById(R.id.nomeusuario);
         nameRes = findViewById(R.id.nomeres);
         TextView textGen = findViewById(R.id.textgeneroStudent);
+        TextView accessdata = findViewById(R.id.accessdata);
+        TextView emailtext_resp = findViewById(R.id.emailtext_resp);
+        TextView emailtext_resp2 = findViewById(R.id.emailtext_resp2);
+        TextView respname = findViewById(R.id.respname);
         TextView textSerie = findViewById(R.id.textSerie);
+        TextView name = findViewById(R.id.name);
+        TextView usernametext = findViewById(R.id.usernametext);
+        TextView passwordtext = findViewById(R.id.passwordtext);
+        TextView passwordtextconf = findViewById(R.id.passwordtextconf);
+        TextView resptext = findViewById(R.id.resptext);
+        TextView dadosStudent = findViewById(R.id.dataStudent);
         ImageButton buttonHomea = findViewById(R.id.button_homea);
         emailRes1 = findViewById(R.id.emailres1);
         emailRes2 = findViewById(R.id.emailres2);
@@ -180,6 +190,16 @@ public class StudentRegister extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     if (response != null) {
+                        respname.setVisibility(View.VISIBLE);
+                        emailtext_resp.setVisibility(View.VISIBLE);
+                        emailtext_resp2.setVisibility(View.VISIBLE);
+                        usernametext.setVisibility(View.VISIBLE);
+                        passwordtext.setVisibility(View.VISIBLE);
+                        passwordtextconf.setVisibility(View.VISIBLE);
+                        resptext.setVisibility(View.VISIBLE);
+                        name.setVisibility(View.VISIBLE);
+                        accessdata.setVisibility(View.VISIBLE);
+                        dadosStudent.setVisibility(View.VISIBLE);
                         textGen.setVisibility(View.VISIBLE);
                         nameStudent.setVisibility(View.VISIBLE);
                         listaGenero.setVisibility(View.VISIBLE);
