@@ -157,16 +157,17 @@
         android:background="#406412"
         android:text="Escolha a serie"/>
 
-    <ListView
+    <Spinner
         android:visibility="gone"
         android:id="@+id/listaSerie"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
+        android:layout_height="wrap_content"
         android:dividerHeight="5dp"
         android:divider="#e7f4d7"
         android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015">
-    </ListView>
+        android:textColorHighlight="#d6e015"
+        android:spinnerMode="dropdown">
+    </Spinner>
 
     <Button
         android:visibility="gone"

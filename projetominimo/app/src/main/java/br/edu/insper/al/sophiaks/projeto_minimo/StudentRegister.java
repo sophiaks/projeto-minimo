@@ -1,5 +1,6 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,13 +55,13 @@ public class StudentRegister extends AppCompatActivity {
     Button btnValid;
     Button btnregister;
     EditText codAluno;
-
+    String[] types;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
         ListView listaGenero = findViewById(R.id.listaGeneroStudent);
-        ListView listaSerie = findViewById(R.id.listaSerie);
+        Spinner listaSerie = findViewById(R.id.listaSerie);
         nameStudent = findViewById(R.id.nameStudent);
 
         username = findViewById(R.id.nomeusuario);
@@ -74,14 +76,20 @@ public class StudentRegister extends AppCompatActivity {
         btnValid = findViewById(R.id.validBtton_student);
         btnregister = findViewById(R.id.btnFinish_Student);
         listaGenero.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        listaSerie.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        types = new String[]{"E.I. - 4 anos", "E.I. - 5 anos", "E.F. I - 1° ano","E.F. I - 2° ano","E.F. I - 3° ano",
+                "E.F. I - 4° ano","E.F. I - 5° ano", "E.F. II - 6° ano","E.F. II - 7° ano","E.F. II - 8° ano","E.F. II - 9° ano",
+                "E.M. - 1ª Série","E.M. - 2ª Série","E.M. - 3ª Série"};
         // create adapter using array from resources file
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.names,
                 android.R.layout.simple_list_item_single_choice);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-                this, R.array.seriestypes,
-                android.R.layout.simple_list_item_single_choice);
+//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+//                this, R.array.seriestypes,
+//                android.R.layout.simple_list_item_single_choice);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
+//set the spinners adapter to the previously created one.
+        listaSerie.setAdapter(adapter);
         listaGenero.setAdapter(adapter);
         listaSerie.setAdapter(adapter2);
         // get array from resources file
@@ -102,11 +110,12 @@ public class StudentRegister extends AppCompatActivity {
                 genValue = gen_value.toString(); //getter method
             }
         });
-        listaSerie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                serieValue = String.valueOf(position); //getter method
+        listaSerie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
                 if (position ==0){
-                    serieValue = "19";;
+                    serieValue = "19";
                 }
                 else if (position ==1){
                     serieValue = "20";
@@ -147,9 +156,12 @@ public class StudentRegister extends AppCompatActivity {
                 else if (position ==13){
                     serieValue = "12";
                 }
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
             }
         });
-
 
         btnValid.setOnClickListener((view) -> {
             String codStudent = codAluno.getText().toString();
