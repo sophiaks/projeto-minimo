@@ -96,14 +96,17 @@
 
     <TextView
         android:id="@+id/textgeneroProf"
+        android:text="Escolha o genêro"
         android:visibility="gone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="escolha genero"
+        android:paddingLeft="135dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_gravity="center_horizontal"
-        android:textSize="20dp"/>
+        android:textSize="16dp"
+        android:textColor="#e7f4d7"
+        android:background="#406412"/>
 
 
     <ListView

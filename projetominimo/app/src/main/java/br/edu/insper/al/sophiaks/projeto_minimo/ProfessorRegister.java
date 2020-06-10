@@ -66,6 +66,7 @@ public class ProfessorRegister extends AppCompatActivity {
         ListView listaGenero = findViewById(R.id.listaGenero);
         ListView optProfessor = findViewById(R.id.optProfessor);
         nameProf = findViewById(R.id.nameProf);
+        TextView textgen = findViewById(R.id.textgeneroProf);
         textOptProf = findViewById(R.id.textOptProf);
         emailProf = findViewById(R.id.emailprof);
         passwordProf = findViewById(R.id.passwordProf);
@@ -110,6 +111,7 @@ public class ProfessorRegister extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     if (response != null) {
+                        textgen.setVisibility(View.VISIBLE);
                         nameProf.setVisibility(View.VISIBLE);
                         listaGenero.setVisibility(View.VISIBLE);
                         textOptProf.setVisibility(View.VISIBLE);
