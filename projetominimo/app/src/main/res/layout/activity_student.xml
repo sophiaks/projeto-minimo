@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#1b2c2c"
-        tools:context=".StudentRegister">
-        
+    android:orientation="vertical"
+    android:background="#1b2c2c"
+    tools:context=".StudentRegister">
 <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -36,37 +31,46 @@
     </RelativeLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <EditText
+            android:id="@+id/cod_student"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginLeft="100dp"
+            android:textSize="25dp"
+            android:textColor="#abbcbf"
+            android:hint="CÓDIGO"
+            android:textColorHint="#698b91"
+            android:inputType="textCapCharacters"
+            android:textAllCaps="true"
+            android:layout_marginBottom="10dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+        <Button
+            android:id="@+id/validBtton_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VALIDAR"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="13dp"
+            android:background="#d6e015" />
 
-            <EditText
-                android:id="@+id/cod_student"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
+    </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:textSize="25dp"
-                android:textColor="#abbcbf"
-                android:hint="CÓDIGO"
-                android:textColorHint="#698b91"
-                android:inputType="textCapCharacters"
-                android:textAllCaps="true"
-                android:layout_marginBottom="10dp"
-                android:imeOptions="actionDone"
-                android:singleLine="true"/>
-            <Button
-                android:id="@+id/validBtton_student"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VALIDAR"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="13dp"
-                android:background="#d6e015" />
-
-        </RelativeLayout>
-
+                android:orientation="vertical"
+                android:background="#1b2c2c"
+                tools:context=".StudentRegister">
     <TextView
         android:id="@+id/dataStudent"
         android:visibility="gone"
@@ -373,6 +377,6 @@
         android:text="@string/cadastrar"
         android:layout_gravity="center_horizontal">
     </Button>
-
-    </LinearLayout>
-</ScrollView>
+            </LinearLayout>
+        </ScrollView>
+</LinearLayout>
