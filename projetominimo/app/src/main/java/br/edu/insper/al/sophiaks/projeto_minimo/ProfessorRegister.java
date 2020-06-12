@@ -76,6 +76,7 @@ public class ProfessorRegister extends AppCompatActivity {
         emailProf = findViewById(R.id.emailprof);
         String hint_email = emailProf.getText().toString();
         passwordProf = findViewById(R.id.passwordProf);
+        String hint_password = passwordProf.getText().toString();
         passwordConfProf = findViewById(R.id.passwordConfProf);
         btnValid = findViewById(R.id.validBtton);
         btnregister = findViewById(R.id.btnFinish);
@@ -177,7 +178,10 @@ public class ProfessorRegister extends AppCompatActivity {
             if (nameProf.getText().toString().equals(hint_name) || emailProf.getText().toString().equals(hint_email)){
                 Toast.makeText(ProfessorRegister.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
             } else {
-                if (passwordConfProf.getText().toString().equals(passwordProf.getText().toString())){
+                if (passwordProf.getText().toString().equals(hint_password)){
+                    Toast.makeText(ProfessorRegister.this, "Defina uma senha!", Toast.LENGTH_LONG).show();
+                }
+                else if (passwordConfProf.getText().toString().equals(passwordProf.getText().toString())){
                     doRegister();
                     Intent intentRegister = new Intent(this, MainActivity.class);
                     startActivity(intentRegister);
