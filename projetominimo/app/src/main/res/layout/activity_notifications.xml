@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Notifications">
+    <Button android:id="@+id/buttonnot"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="teste" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
+    <TextView android:id="@+id/testenot"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Teste"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
