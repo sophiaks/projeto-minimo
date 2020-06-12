@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
             // [END retrieve_current_token]
+            Intent intent = new Intent(this, Notifications.class);
+            startActivity(intent);
         });
     }
 
