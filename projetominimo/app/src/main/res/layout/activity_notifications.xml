@@ -9,15 +9,12 @@
     <Button android:id="@+id/buttonnot"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="teste" />
+        android:text="refresh" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="4dp"
         android:scrollbars="vertical"/>
-    <TextView android:id="@+id/testenot"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Teste"/>
 
 </LinearLayout>

@@ -16,7 +16,6 @@ import java.util.Set;
 
 public class Notifications extends AppCompatActivity {
     ArrayList<ExampleNotification> mExampleList;
-    TextView testenot;
     Button buttonnot;
     SharedPreferences sharedPreferences;
     Set<String> setTitle;

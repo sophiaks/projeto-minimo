@@ -56,7 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         listTitle.add(title);
         listBody.add(body);
-        editor.putString("title", title);
+//        editor.putString("title", title);
         editor.putStringSet("listTitle", listTitle);
         editor.putStringSet("listBody",listBody);
         editor.apply();
