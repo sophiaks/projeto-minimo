@@ -5,13 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#1b2c2c"
-    tools:context=".StudentRegister">
+    tools:context=".StudentRegister"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
+
 <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:background="#1b2c2c"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+    >
+
         <ImageButton
             android:id="@+id/button_homea"
             android:layout_width="60dp"
@@ -70,7 +75,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="#1b2c2c"
-                tools:context=".StudentRegister">
+                tools:context=".StudentRegister"
+                android:clickable="true"
+                android:focusableInTouchMode="true">
     <TextView
         android:id="@+id/dataStudent"
         android:visibility="gone"

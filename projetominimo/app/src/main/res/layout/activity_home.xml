@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="#1b2c2c">
+    android:background="#1b2c2c"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
 
     <RelativeLayout
@@ -30,6 +32,7 @@
             android:layout_marginBottom="12dp"
             android:gravity="center" >
             <EditText
+                android:id="@+id/search"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:background="#e7f4d7"

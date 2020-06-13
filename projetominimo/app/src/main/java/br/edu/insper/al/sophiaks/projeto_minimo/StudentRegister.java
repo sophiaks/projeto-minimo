@@ -1,10 +1,12 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -98,6 +100,8 @@ public class StudentRegister extends AppCompatActivity {
         codAluno = findViewById(R.id.cod_student);
         queue = Volley.newRequestQueue(this);
 
+
+
 //        create adapter using array from resources file
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, names);
 //        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
@@ -114,7 +118,6 @@ public class StudentRegister extends AppCompatActivity {
             startActivity(intentRegister);
             //finish();
         });
-
         listaGenero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
@@ -257,7 +260,82 @@ public class StudentRegister extends AppCompatActivity {
 
 
         });
+
+        //Esconde o teclado quando clica fora do EditText
+        codAluno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        nameStudent.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !username.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !passwordStudent.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        passwordStudent.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !passwordConfStudent.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        passwordConfStudent.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !nameRes.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        nameRes.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !emailRes1.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        emailRes1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !emailRes2.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        emailRes2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);}
+            }
+        });
+
+
     }
+
+
+    // Esconde o teclado quando clica fora do EditText
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     public void doRegister(){
         // Instantiate the RequestQueue.
         String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";

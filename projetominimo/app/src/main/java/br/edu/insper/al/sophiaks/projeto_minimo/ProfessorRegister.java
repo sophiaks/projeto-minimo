@@ -1,5 +1,6 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -192,7 +193,60 @@ public class ProfessorRegister extends AppCompatActivity {
 
 
         });
+
+        //Esconde o teclado quando clica fora do EditText
+        codProf.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        nameProf.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !emailProf.hasFocus()) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        emailProf.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !passwordProf.hasFocus()) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        passwordProf.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !passwordConfProf.hasFocus()) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        passwordConfProf.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
     }
+
+    //Esconde o teclado quando clica fora do EditText
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     public void doRegister(){
         // Instantiate the RequestQueue.
         String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
