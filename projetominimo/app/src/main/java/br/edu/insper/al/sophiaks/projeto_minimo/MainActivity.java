@@ -1,7 +1,12 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonToken = findViewById(R.id.button_token);
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
+        View v = this.getCurrentFocus();
 
 
         //          METODO DE LOGIN
@@ -63,6 +69,23 @@ public class MainActivity extends AppCompatActivity {
             Intent intentRegister = new Intent(this, HomeRegister.class);
             startActivity(intentRegister);
             finish();
+        });
+
+        //Esconde o teclado quando clica fora do EditText
+        textUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !textPassword.hasFocus()) {
+                    hideKeyboard(v);}
+            }
+        });
+
+        textPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !textUsername.hasFocus()) {
+                    hideKeyboard(v);}
+            }
         });
 
         buttonToken.setOnClickListener((view) ->{
@@ -90,6 +113,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Notifications.class);
             startActivity(intent);
         });
+    }
+
+    // Esconde o teclado quando clica fora do EditText
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     //      CHECA SE FOI COLOCADO UM USERNAME E PASSWORD

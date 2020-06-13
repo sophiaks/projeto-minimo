@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#1A2A2D"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -28,7 +30,8 @@
         android:inputType="textEmailAddress"
         android:textColorHint="#698b91"
         android:textColor="#d6e015"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+         />
 
     <EditText
         android:id="@+id/text_password"
