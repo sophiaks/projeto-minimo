@@ -244,19 +244,15 @@ public class StudentRegister extends AppCompatActivity {
             queue.add(getRequest);
         });
         btnregister.setOnClickListener((view) -> {
-            if (serieValue != "0"){
-                if (passwordConfStudent.getText().toString().equals(passwordStudent.getText().toString())){
+            if(validateRegister(nameStudent.getText().toString(), username.getText().toString(), nameRes.getText().toString(), emailRes1.getText().toString(), passwordStudent.getText().toString(), passwordConfStudent.getText().toString())) {
+                if (passwordConfStudent.getText().toString().equals(passwordStudent.getText().toString())) {
                     doRegister();
                     Intent intentRegister = new Intent(this, MainActivity.class);
                     startActivity(intentRegister);
-                } else{
+                } else {
                     Toast.makeText(StudentRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
                 }
             }
-            else{
-                Toast.makeText(StudentRegister.this, "Escolha uma série!", Toast.LENGTH_LONG).show();
-            }
-
 
 
         });
@@ -373,5 +369,38 @@ public class StudentRegister extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(postRequest);
 
+    }
+
+    private boolean validateRegister(String nameStudent, String username, String nameRes, String emailRes1, String passwordStudent, String passwordConfStudent){
+        if(nameStudent == null || nameStudent.trim().length() == 0){
+            Toast.makeText(this, "Insira o seu nome", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(username == null || username.trim().length() == 0){
+            Toast.makeText(this, "Insira um user", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(nameRes == null || nameRes.trim().length() == 0){
+            Toast.makeText(this, "Insira o nome do responsável", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(emailRes1 == null || emailRes1.trim().length() == 0){
+            Toast.makeText(this, "Insira o email do responsável", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(passwordStudent == null || passwordStudent.trim().length() == 0){
+            Toast.makeText(this, "Insira uma senha", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(passwordConfStudent == null || passwordConfStudent.trim().length() == 0){
+            Toast.makeText(this, "Confirme a senha", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(serieValue == "0") {
+            Toast.makeText(this, "Escolha uma série", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }
