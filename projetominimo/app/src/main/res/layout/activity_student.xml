@@ -5,18 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#1b2c2c"
-    tools:context=".StudentRegister"
-    android:clickable="true"
-    android:focusableInTouchMode="true">
-
+    tools:context=".StudentRegister">
 <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:background="#1b2c2c"
-        tools:ignore="MissingConstraints"
-    >
-
+        android:layout_gravity="center"
+        tools:ignore="MissingConstraints">
         <ImageButton
             android:id="@+id/button_homea"
             android:layout_width="60dp"
@@ -39,14 +35,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/cod_student"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:textSize="25dp"
             android:textColor="#abbcbf"
             android:hint="CÓDIGO"
@@ -61,8 +58,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VALIDAR"
-            android:layout_marginLeft="210dp"
+            android:layout_marginLeft="110dp"
             android:layout_marginTop="13dp"
+            android:textColor="#024121"
             android:background="#d6e015" />
 
     </RelativeLayout>
@@ -75,315 +73,314 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="#1b2c2c"
-                tools:context=".StudentRegister"
-                android:clickable="true"
-                android:focusableInTouchMode="true">
-    <TextView
-        android:id="@+id/dataStudent"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="135dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:textColor="#698b91"
-        android:background="#1b2c2c"
-        android:text="Sobre o aluno:"
-        android:textAllCaps="true"/>
+                tools:context=".StudentRegister">
+                <TextView
+                    android:id="@+id/dataStudent"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="#d6e015"
+                    android:textAllCaps="true"
+                    android:text="Sobre o aluno:"
+                    />
 
-    <TextView
-        android:id="@+id/name"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="140dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#1b2c2c"
-        android:text="Nome Completo:"
-        android:background="#d6e015"/>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textSize="23dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#698b91"
+                    android:textAllCaps="true"
+                    android:text="@string/nome_completo"
+                    />
 
 
-    <EditText
-        android:id="@+id/nameStudent"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/nome"
-        android:textColorHint="#cacecc"
-        android:singleLine="true"
-        android:paddingVertical="20dp"
-        />
-    <TextView
-        android:id="@+id/textgeneroStudent"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="20dp"
-        android:paddingLeft="135dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Escolha o gênero:"
-        android:background="#d6e015"/>
+                <EditText
+                    android:id="@+id/nameStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="@string/nome"
+                    android:background="@drawable/rect"
+                    android:textColorHint="#698b91"
+                    android:singleLine="true"
+                    android:textSize="23dp"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    />
 
-    <Spinner
-        android:visibility="gone"
-        android:id="@+id/listaGeneroStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:divider="#e7f4d7"
-        android:dropDownWidth="match_parent"
-        android:textColorHint="#e7f4d7"
-        android:textColorHighlight="#d6e015"
-        android:spinnerMode="dropdown">
-    </Spinner>
+                <TextView
+                    android:id="@+id/textgeneroStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:paddingLeft="10dp"
+                    android:textSize="23dp"
+                    android:gravity="start"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#698b91"
+                    android:text="Gênero:"
+                    android:textAllCaps="true"
+                    />
 
-    <TextView
-        android:id="@+id/textSerie"
-        android:visibility="gone"
-        android:paddingVertical="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="140dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:background="#d6e015"
-        android:text="Escolha a série:"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        />
+                <Spinner
+                    android:id="@+id/listaGeneroStudent"
+                    android:background="@drawable/rect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:divider="#e7f4d7"
+                    android:scrollbarSize="1dp"
+                    android:dropDownWidth="match_parent"
+                    android:spinnerMode="dropdown">
+                </Spinner>
 
-    <Spinner
-        android:id="@+id/listaSerie"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="#e7f4d7"
-        android:textColorHint="#e7f4d7"
-        android:outlineAmbientShadowColor="#e7f4d7"
-        android:textColorHighlight="#d6e015"
-        android:dropDownWidth="match_parent"
-        android:drawSelectorOnTop="true"
-        android:spinnerMode="dropdown">
-    </Spinner>
+                <TextView
+                    android:id="@+id/textSerie"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:paddingLeft="10dp"
+                    android:textSize="23dp"
+                    android:textColor="#698b91"
+                    android:text="Série:"
+                    android:textAllCaps="true"
+                    />
 
-        <View
-            android:id="@+id/div"
-            android:visibility="gone"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="360dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="0.5dp"
-            android:background="#d6e015"/>
+                <Spinner
+                    android:id="@+id/listaSerie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="#e7f4d7"
+                    android:background="@drawable/rect"
+                    android:dropDownWidth="match_parent"
+                    android:drawSelectorOnTop="true"
+                    android:spinnerMode="dropdown"
+                    android:gravity="center"
+                    android:scrollbarSize="1dp"
+                    >
+                </Spinner>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/accessdata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="80dp"
-        android:paddingTop="25dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:textColor="#b0ce09"
-        android:background="#1b2c2c"
-        android:textAllCaps="true"
-        android:text="Dados de acesso do aluno:"/>
+                <View
+                    android:id="@+id/div"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="0.5dp"
+                    android:background="#d6e015"/>
 
-    <TextView
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:id="@+id/usernametext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="130dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Nome de usuário:"
-        android:background="#b0ce09"/>
+                <TextView
+                    android:id="@+id/accessdata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="#b0ce09"
+                    android:background="#1b2c2c"
+                    android:textAllCaps="true"
+                    android:text="Dados de acesso do aluno:"/>
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/nomeusuario"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="Nome de usuário"
-        android:paddingVertical="20dp"
-        android:textColorHint="#cacecc"
-        android:singleLine="true"
-        />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/usernametext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textAllCaps="true"
+                    android:textSize="23dp"
+                    android:text="Nome de usuário:"
+                    android:textColor="#698b91"/>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/passwordtext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="170dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Senha:"
-        android:background="#b0ce09"/>
+                <EditText
+                    android:id="@+id/nomeusuario"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Usuário"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    android:textSize="23dp"
+                    android:singleLine="true"
+                    />
 
-        <EditText
-            android:visibility="gone"
-            android:id="@+id/passwordStudent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Senha"
-            android:textColorHint="#cacecc"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:paddingVertical="20dp"/>
+                <TextView
+                    android:id="@+id/passwordtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textSize="23dp"
+                    android:textColor="#698b91"
+                    android:text="Senha:"
+                    android:textAllCaps="true" />
 
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/passwordtextconf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="130dp"
-            android:paddingVertical="20dp"
-            android:layout_gravity="center_horizontal"
-            android:textSize="18dp"
-            android:textColor="#1b2c2c"
-            android:text="Confirme a senha:"
-            android:background="#b0ce09"/>
+                <EditText
+                    android:id="@+id/passwordStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Senha"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    android:textSize="23dp"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:paddingVertical="20dp"
+                    android:paddingLeft="10dp"/>
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/passwordConfStudent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:hint="Confirmação da Senha"
-        android:paddingVertical="20dp"
-        android:textColorHint="#cacecc"
-        android:singleLine="true"
-        />
+                <TextView
+                    android:id="@+id/passwordtextconf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="23dp"
+                    android:textColor="#698b91"
+                    android:textAllCaps="true"
+                    android:text="Confirme a senha:" />
 
-        <View
-            android:id="@+id/div1"
-            android:visibility="gone"
-            android:layout_width="360dp"
-            android:layout_height="0.5dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="20dp"
-            android:background="#d6e015" />
+                <EditText
+                    android:id="@+id/passwordConfStudent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:hint="Confirmação da Senha"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    android:textSize="23dp"
+                    android:singleLine="true"
+                    />
 
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/resptext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:paddingLeft="100dp"
-            android:paddingTop="25dp"
-            android:paddingBottom="5dp"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:textColor="#91b404 "
-            android:background="#1b2c2c"
-            android:textAllCaps="true"
-            android:text="Sobre os Responsáveis:"/>
+                <View
+                    android:id="@+id/div1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="#d6e015" />
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/respname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="75dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Nome completo do Responsável:"
-        android:background="#91b404 "/>
+                <TextView
+                    android:id="@+id/resptext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="#91b404 "
+                    android:background="#1b2c2c"
+                    android:textAllCaps="true"
+                    android:text="Sobre os Responsáveis:"/>
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/nomeres"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="Nome completo do responsável"
-        android:textColorHint="#cacecc"
-        android:singleLine="true"
-        android:paddingVertical="20dp"
-    />
+                <TextView
+                    android:id="@+id/respname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textSize="23dp"
+                    android:textColor="#698b91"
+                    android:textAllCaps="true"
+                    android:text="Nome completo do Responsável:"
+                    />
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/emailtext_resp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="115dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:text="Email do responsável:"
-        android:background="#91b404"/>
+                <EditText
+                    android:id="@+id/nomeres"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Nome do responsável"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    android:singleLine="true"
+                    android:textSize="23dp"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/emailres1"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="E-mail do responsável"
-        android:paddingVertical="20dp"
-        android:singleLine="true"
-        android:textColorHint="#cacecc"
-        />
+                <TextView
+                    android:id="@+id/emailtext_resp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textSize="23dp"
+                    android:textAllCaps="true"
+                    android:text="Email do responsável:"
+                    android:textColor="#698b91"/>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/emailtext_resp2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="80dp"
-        android:paddingVertical="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="18dp"
-        android:textColor="#1b2c2c"
-        android:text="Email do segundo responsável:"
-        android:background="#91b404 "/>
+                <EditText
+                    android:id="@+id/emailres1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="E-mail do responsável"
+                    android:paddingVertical="20dp"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textSize="23dp"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/emailres2"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="E-mail do segundo responsável"
-        android:textColorHint="#cacecc"
-        android:singleLine="true"
-        android:paddingVertical="20dp"
-        />
+                <TextView
+                    android:id="@+id/emailtext_resp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingVertical="20dp"
+                    android:layout_gravity="start"
+                    android:textSize="23dp"
+                    android:textColor="#698b91"
+                    android:text="Email do segundo responsável:"
+                    android:textAllCaps="true"/>
 
-    <Button
-        android:visibility="gone"
-        android:id="@+id/btnFinish_Student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="20dp"
-        android:background="#d6e015"
-        android:textColor="#024121"
-        android:text="@string/cadastrar"
-        android:layout_gravity="center_horizontal">
-    </Button>
+                <EditText
+                    android:id="@+id/emailres2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="E-mail do segundo responsável"
+                    android:textColorHint="#698b91"
+                    android:background="@drawable/rect"
+                    android:singleLine="true"
+                    android:paddingVertical="20dp"
+                    android:textSize="23dp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnFinish_Student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="#d6e015"
+                    android:textColor="#024121"
+                    android:text="@string/cadastrar"
+                    android:layout_gravity="center_horizontal">
+                </Button>
             </LinearLayout>
         </ScrollView>
 </LinearLayout>

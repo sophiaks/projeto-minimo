@@ -38,14 +38,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/cod_prof"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:textSize="25dp"
             android:hint="CÓDIGO"
             android:textColor="#abbcbf"
@@ -59,129 +60,155 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VALIDAR"
-            android:layout_marginLeft="210dp"
+            android:layout_marginLeft="110dp"
             android:layout_marginTop="13dp"
             android:textColor="#024121"
             android:background="#d6e015"/>
 
     </RelativeLayout>
 
-
-    <TextView
-        android:id="@+id/textdataProf"
-        android:text="Dados do professor:"
-        android:visibility="gone"
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="135dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="16dp"
-        android:textColor="#e7f4d7"
-        android:background="#1b2c2c"/>
+        android:orientation="vertical"
+        android:background="#1b2c2c"
+        tools:context=".ProfessorRegister">
+            <TextView
+                android:id="@+id/textdataProf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingVertical="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:textColor="#e7f4d7"
+                android:text="Dados do professor:"
+                android:textAllCaps="true"
+                android:background="#1b2c2c"/>
 
-    <EditText
-        android:id="@+id/nameProf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:singleLine="true"
-        android:hint="@string/nome"
-        android:visibility="gone"
-        />
+            <EditText
+                android:id="@+id/nameProf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:paddingVertical="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/rect"
+                android:singleLine="true"
+                android:textSize="23dp"
+                android:textColorHint="#698b91"
+                android:hint="@string/nome"
+                android:layout_marginBottom="40dp"
+                />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/emailprof"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:singleLine="true"
-        android:hint="E-mail"
-        />
+            <EditText
+                android:id="@+id/emailprof"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:paddingVertical="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/rect"
+                android:textColorHint="#698b91"
+                android:textSize="23dp"
+                android:layout_marginBottom="40dp"
+                android:hint="E-mail"
+                />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/passwordProf"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        android:hint="Senha"
-        />
+            <EditText
+                android:id="@+id/passwordProf"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:paddingVertical="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/rect"
+                android:singleLine="true"
+                android:textColorHint="#698b91"
+                android:textSize="23dp"
+                android:layout_marginBottom="40dp"
+                android:hint="Senha"
+                />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/passwordConfProf"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        android:hint="Confirmação da Senha"
-        />
+            <EditText
+                android:id="@+id/passwordConfProf"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:paddingVertical="20dp"
+                android:paddingLeft="20dp"
+                android:textColorHint="#698b91"
+                android:textSize="23dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/rect"
+                android:hint="Confirmação da Senha"
+                />
 
-    <TextView
-        android:id="@+id/textgeneroProf"
-        android:text="Escolha o genêro:"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="135dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="16dp"
-        android:textColor="#e7f4d7"
-        android:background="#1b2c2c"/>
+            <TextView
+                android:id="@+id/textgeneroProf"
+                android:text="Escolha o genêro:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingVertical="20dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textAllCaps="true"
+                android:textColor="#e7f4d7"
+                android:background="#1b2c2c"/>
 
 
-    <Spinner
-        android:visibility="gone"
-        android:id="@+id/listaGenero"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015"
-        android:spinnerMode="dropdown">
-    </Spinner>
+            <Spinner
+                android:id="@+id/listaGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="5dp"
+                android:divider="#e7f4d7"
+                android:textColorHint="#698b91"
+                android:background="@drawable/rect"
+                android:spinnerMode="dropdown">
+            </Spinner>
 
-    <TextView
-        android:id="@+id/textOptProf"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:text="@string/escolha_o_tipo_de_professor_que_voc"
-        android:layout_gravity="center_horizontal"
-        android:textSize="16dp"
-        android:textColor="#e7f4d7"
-        android:background="#1b2c2c"/>
+            <TextView
+                android:id="@+id/textOptProf"
+                android:layout_width="422dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:background="#1b2c2c"
+                android:paddingLeft="10dp"
+                android:paddingVertical="20dp"
+                android:text="@string/escolha_o_tipo_de_professor_que_voc"
+                android:textAllCaps="true"
+                android:textColor="#e7f4d7"
+                android:textSize="20dp" />
 
-    <Spinner
-        android:visibility="gone"
-        android:id="@+id/optProfessor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:divider="#e7f4d7"
-        android:textColorHint="#698b91"
-        android:textColorHighlight="#d6e015"
-        android:spinnerMode="dropdown">
-    </Spinner>
+            <Spinner
+                android:id="@+id/optProfessor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="5dp"
+                android:divider="#e7f4d7"
+                android:background="@drawable/rect"
+                android:spinnerMode="dropdown">
+            </Spinner>
 
-    <Button
-        android:visibility="gone"
-        android:id="@+id/btnFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#d6e015"
-        android:textColor="#024121"
-        android:text="@string/cadastrar"
-        android:layout_gravity="center_horizontal">
-    </Button>
+            <Button
+                android:id="@+id/btnFinish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#d6e015"
+                android:textColor="#024121"
+                android:text="@string/cadastrar"
+                android:layout_gravity="center_horizontal">
+            </Button>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
