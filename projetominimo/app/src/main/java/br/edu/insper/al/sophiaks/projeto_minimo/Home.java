@@ -65,6 +65,9 @@ public class Home extends AppCompatActivity {
     String id;
     EditText search;
     ImageButton notification;
+    String loginUser;
+    String username;
+    ImageButton config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class Home extends AppCompatActivity {
         // Locate the ViewPager in activity_home.xml
         viewPager = findViewById(R.id.pager);
         notification = findViewById(R.id.notification);
+        config = findViewById(R.id.config);
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -81,6 +85,8 @@ public class Home extends AppCompatActivity {
         if (extras != null){
             try {
                 login = new JSONObject(loginPage.getStringExtra("response")); // pega as infos como um JSONObject
+                loginUser = loginPage.getStringExtra("response");
+                username = loginPage.getStringExtra("username");
             } catch(JSONException e) {
                 e.printStackTrace();
             };
@@ -113,7 +119,20 @@ public class Home extends AppCompatActivity {
             Intent intent = new Intent(this, Notifications.class);
             startActivity(intent);
             finish();
+
         });
+        config.setOnClickListener((view)->{
+            goToConfig();
+        });
+    }
+    //Vai pra página de configurações
+    private void goToConfig() {
+        Log.d("loginUser", loginUser);
+        Log.d("username", username);
+        Intent intent = new Intent(this, ConfigActivity.class);
+        intent.putExtra("loginUser", loginUser);
+        intent.putExtra("username", username);
+        startActivity(intent);
     }
 
     // Esconde o teclado quando clica fora do EditText
@@ -175,4 +194,6 @@ public class Home extends AppCompatActivity {
         });
         mQueue.add(request);
     }
+
+
 }
