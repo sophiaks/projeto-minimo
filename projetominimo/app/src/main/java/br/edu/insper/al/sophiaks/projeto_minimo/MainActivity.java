@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener((view) -> {
             Intent intentRegister = new Intent(this, HomeRegister.class);
             startActivity(intentRegister);
-            finish();
         });
 
         buttonToken.setOnClickListener((view) ->{
@@ -175,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtra("response", response);
         startActivity(intent);
-        finish();
     }
 }
 

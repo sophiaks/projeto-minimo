@@ -35,12 +35,14 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="69dp"
             android:layout_marginBottom="12dp"
-            android:gravity="center" >
+            android:gravity="center">
             <EditText
                 android:id="@+id/search"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:background="#e7f4d7"
+                android:textColor="#1b2c2c"
+
                 />
 
             <ImageView
@@ -104,7 +106,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:src="@drawable/bell"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"/>
 
         <ImageButton
             android:layout_width="29dp"
