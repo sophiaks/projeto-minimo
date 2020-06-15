@@ -76,7 +76,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#1b2c2c"
-        tools:context=".ProfessorRegister">
+        tools:context=".ProfessorRegister"
+        android:clickable="true"
+        android:focusableInTouchMode="true">
             <TextView
                 android:visibility="gone"
                 android:id="@+id/textdataProf"
