@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtra("response", response);
         startActivity(intent);
-        finish();
     }
 }
 
