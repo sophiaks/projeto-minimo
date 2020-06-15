@@ -186,7 +186,7 @@
                 android:visibility="gone"
                 android:id="@+id/textOptProf"
                 android:layout_width="422dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:background="#1b2c2c"
                 android:paddingLeft="10dp"
@@ -197,6 +197,7 @@
                 android:textSize="20dp" />
 
             <Spinner
+
                 android:visibility="gone"
                 android:id="@+id/optProfessor"
                 android:layout_width="match_parent"
