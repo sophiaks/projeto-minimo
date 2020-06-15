@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<LinearLayout android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:layout_width="match_parent"
     android:background="#1b2c2c"
     android:clickable="true"
-    android:focusableInTouchMode="true">
-
+    android:layout_gravity="bottom"
+    android:focusableInTouchMode="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -59,10 +64,7 @@
             android:src="@drawable/filtro"
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
-
     <!--    Div do video-->
-
-
     <RelativeLayout
         android:layout_width="400dp"
         android:layout_height="350dp"
@@ -73,15 +75,14 @@
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
     </RelativeLayout>
+</LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="240dp"
-        android:background="#1b2c2c">
-
+        android:background="#1b2c2c"
+        android:layout_alignParentBottom="true">
         <ImageButton
             android:layout_width="38dp"
             android:layout_height="40dp"
@@ -94,6 +95,7 @@
             tools:ignore="MissingConstraints" />
 
         <ImageButton
+            android:id="@+id/notification"
             android:layout_width="38dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
@@ -115,4 +117,4 @@
             android:src="@drawable/materiais"
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

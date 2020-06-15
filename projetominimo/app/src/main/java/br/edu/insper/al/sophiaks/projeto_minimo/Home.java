@@ -5,6 +5,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +19,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +64,7 @@ public class Home extends AppCompatActivity {
     String serie;
     String id;
     EditText search;
+    ImageButton notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class Home extends AppCompatActivity {
 
         // Locate the ViewPager in activity_home.xml
         viewPager = findViewById(R.id.pager);
+        notification = findViewById(R.id.notification);
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -105,8 +109,11 @@ public class Home extends AppCompatActivity {
                     hideKeyboard(v);}
             }
         });
-
-
+        notification.setOnClickListener((view)->{
+            Intent intent = new Intent(this, Notifications.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     // Esconde o teclado quando clica fora do EditText
@@ -114,6 +121,8 @@ public class Home extends AppCompatActivity {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+
 
     private void jsonParse(){
         String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/"+serie+"/"+id+"/";
