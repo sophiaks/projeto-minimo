@@ -50,6 +50,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
     public void saveNotification(String title, String body) {
-       db.inserirNotificacao(title, body);
+//        construir o banco
+        db = new DatabaseManager(this,"base",null,1);
+        db.inserirNotificacao(title, body);
     }
 }

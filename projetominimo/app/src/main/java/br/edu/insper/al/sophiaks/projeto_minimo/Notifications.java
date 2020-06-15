@@ -29,11 +29,12 @@ public class Notifications extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
+        db = new DatabaseManager(this,"base",null,1);
         loadNotification();
         buildRecyclerView();
         buttonnot = findViewById(R.id.buttonnot);
         buttonnot.setOnClickListener((view) -> {
-            refreshNotification();
+            deleteNotifications();
             buildRecyclerView();
         });
     }
@@ -51,14 +52,16 @@ public class Notifications extends AppCompatActivity {
             do{
                 ExampleNotification exampleNotification = new ExampleNotification(c.getString(c.getColumnIndex("TITULO")),
                         c.getString(c.getColumnIndex("CORPO")));
-
                 notifications.add(exampleNotification);
 
             }while(c.moveToNext());
         }
     }
-    public void refreshNotification(){
-
+    public void deleteNotifications(){
+        for (ExampleNotification exampleNotification: notifications){
+            db.removeNotificacao(exampleNotification.getText1());
+        }
+        notifications.clear();
     }
 
     public void buildRecyclerView() {

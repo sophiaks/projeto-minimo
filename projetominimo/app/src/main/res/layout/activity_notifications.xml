@@ -9,7 +9,7 @@
     <Button android:id="@+id/buttonnot"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="refresh" />
+        android:text="Limpar Notificações" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
