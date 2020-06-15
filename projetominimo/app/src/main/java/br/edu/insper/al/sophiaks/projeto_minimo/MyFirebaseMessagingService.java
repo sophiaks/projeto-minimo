@@ -17,8 +17,7 @@ import java.util.Set;
 
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    Set<String> listTitle = new HashSet<String>();
-    Set<String> listBody = new HashSet<String>();
+    public DatabaseManager db;
     /**
      * Called if InstanceID token is updated. This may occur if the security of
      * the previous token had been compromised. Note that this is called when the InstanceID token
@@ -50,17 +49,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             saveNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
     }
-    private void saveNotification(String title, String body) {
-        SharedPreferences sharedPreferences = getSharedPreferences("Notifications", Context.MODE_PRIVATE);
-        // Your notification serialization logic here…
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        listTitle.add(title);
-        listBody.add(body);
-//        editor.putString("title", title);
-        editor.putStringSet("listTitle", listTitle);
-        editor.putStringSet("listBody",listBody);
-        editor.apply();
-        Log.d("Message", "Message Notification title set: " + sharedPreferences.getStringSet("listTitle",null));
-
+    public void saveNotification(String title, String body) {
+       db.inserirNotificacao(title, body);
     }
 }
