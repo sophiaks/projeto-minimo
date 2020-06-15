@@ -116,7 +116,6 @@ public class StudentRegister extends AppCompatActivity {
         buttonHomea.setOnClickListener((view) -> {
             Intent intentRegister = new Intent(this, MainActivity.class);
             startActivity(intentRegister);
-            //finish();
         });
         listaGenero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -249,6 +248,7 @@ public class StudentRegister extends AppCompatActivity {
                     doRegister();
                     Intent intentRegister = new Intent(this, MainActivity.class);
                     startActivity(intentRegister);
+                    finish();
                 } else {
                     Toast.makeText(StudentRegister.this, "As duas senhas precisam ser iguais!", Toast.LENGTH_LONG).show();
                 }
