@@ -28,4 +28,4 @@ Este repositório contém o projeto final da matéria Desenvolvimento Colaborati
 ## Rodando o aplicativo
 Após instalar o *Android Studio*, para acessar o projeto, basta abrir o *Android Studio*, ir em `Open an existing Android Studio project` (caso esteja rodando o aplicativo pela primeira vez), ou *File → Open...*, selecione o diretório *projeto-minimo/projetominimo*.
 
-Feito isso, cheque se o *Android Studio* está instalando alguma dependência (muito comum no início de um projeto), essa checagem pode ser feito olhando na parte de baixo do aplicativo, analisando se há algum processo em andamento. Após a instalação das dependências, pode-se rodar o aplicativo clicando no **botão verde** na parte de cima, ao lado do *Pixel 2 API 28*
+Feito isso, cheque se o *Android Studio* está instalando alguma dependência (muito comum no início de um projeto), essa checagem pode ser feita olhando na parte de baixo do aplicativo, analisando se há algum processo em andamento. Após a instalação das dependências, pode-se rodar o aplicativo clicando no **botão verde** na parte de cima, ao lado do *Pixel 2 API 28*
