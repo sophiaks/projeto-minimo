@@ -40,6 +40,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d("TAG", "Message data payload: " + remoteMessage.getData());
+            Log.d("TAG", "Message data payload: " + remoteMessage.getData().toString());
         }
 
 // Check if message contains a notification payload.
@@ -48,6 +49,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d("Message", "Message Notification title: " + remoteMessage.getNotification().getTitle());
             saveNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
+
+
+
     }
     public void saveNotification(String title, String body) {
 //        construir o banco
