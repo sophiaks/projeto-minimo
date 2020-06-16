@@ -187,6 +187,7 @@
             </Spinner>
 
             <TextView
+                android:layout_marginTop="60dp"
                 android:visibility="gone"
                 android:id="@+id/textOptProf"
                 android:layout_width="422dp"

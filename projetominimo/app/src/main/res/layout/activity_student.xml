@@ -96,7 +96,6 @@
 
                 <TextView
                     android:visibility="gone"
-
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,6 +202,7 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:textSize="20dp"
+                    android:layout_marginTop="50dp"
                     android:textColor="#b0ce09"
                     android:background="#1b2c2c"
                     android:textAllCaps="true"
@@ -311,6 +311,7 @@
                     android:layout_gravity="center_horizontal"
                     android:textSize="20dp"
                     android:textColor="#91b404 "
+                    android:layout_marginTop="50dp"
                     android:background="#1b2c2c"
                     android:textAllCaps="true"
                     android:text="Sobre os Responsáveis:"/>
