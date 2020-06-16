@@ -7,18 +7,16 @@
     android:orientation="vertical"
     android:background="#1b2c2c">
         <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="7dp"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/back"
             android:id="@+id/back"
+            android:background="#1b2c2c"
             tools:ignore="MissingConstraints" />
         <ImageView
-            android:layout_marginTop="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="200dp"
             android:layout_height="200dp"
