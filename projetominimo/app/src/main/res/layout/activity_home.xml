@@ -73,7 +73,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:background="#1b2c2c"
             android:id="@+id/recycleVideos"
-
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

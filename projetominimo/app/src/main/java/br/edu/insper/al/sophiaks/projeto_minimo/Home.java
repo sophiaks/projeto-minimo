@@ -78,7 +78,12 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         config = findViewById(R.id.configButton);
 
+        ImageButton bell = findViewById(R.id.button_home);
 
+        bell.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Notifications.class);
+            startActivity(intent);
+        });
 
 
         // Busca as informações do Post do login
