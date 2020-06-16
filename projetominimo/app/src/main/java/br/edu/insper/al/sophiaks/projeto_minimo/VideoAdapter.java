@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.JsonArray;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
-    private JsonArray
+
 
     public static class VideoViewHolder extends RecyclerView.ViewHolder{
         public WebView mWebView;
@@ -28,7 +28,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         }
     }
 
-    public VideoAdapter()
 
     @Override
     public VideoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

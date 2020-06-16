@@ -7,7 +7,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:background="#e7f4d7">
         <ImageView
             android:id="@+id/imageNotification"
             android:layout_width="50dp"
@@ -31,6 +32,7 @@
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/imageNotification"
             android:text="Line 2"
+            android:textColor="#1b2c2c"
             android:textSize="15sp" />
     </RelativeLayout>
 

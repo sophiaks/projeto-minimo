@@ -6,6 +6,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,6 +20,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,8 +75,15 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        ImageButton bell = findViewById(R.id.bell);
+
+        bell.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Notifications.class);
+            startActivity(intent);
+        });
+
         // Locate the ViewPager in activity_home.xml
-        //viewPager = findViewById(R.id.recyclerView);
+        viewPager = findViewById(R.id.pager);
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -157,9 +166,9 @@ public class Home extends AppCompatActivity {
 
 
                             // Pass results to ViewPagerAdapter Class
-                            //adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
+                            adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
                             // Binds the Adapter to the ViewPager
-                            //viewPager.setAdapter(adapter);
+                            viewPager.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

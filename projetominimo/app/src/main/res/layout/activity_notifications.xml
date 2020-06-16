@@ -17,7 +17,8 @@
             android:id="@+id/buttonnot"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="Limpar Notificações" />
+            android:textSize="10dp"
+            android:text="Limpar" />
 
         <ImageButton
             android:layout_width="50dp"
@@ -27,7 +28,8 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="7dp"
             android:gravity="center_horizontal"
-            android:src="@drawable/filtro"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/back"
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
 
@@ -35,7 +37,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1b2c2c"
+        android:background="#99609c70"
         android:padding="4dp"
         android:scrollbars="vertical" />
 </LinearLayout>

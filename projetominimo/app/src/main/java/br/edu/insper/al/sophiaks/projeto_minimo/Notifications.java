@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +39,14 @@ public class Notifications extends AppCompatActivity {
             deleteNotifications();
             buildRecyclerView();
         });
+
+        ImageButton back = findViewById(R.id.back);
+
+        back.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Home.class);
+            startActivity(intent);
+        });
+
     }
     public void loadNotification(){
 
