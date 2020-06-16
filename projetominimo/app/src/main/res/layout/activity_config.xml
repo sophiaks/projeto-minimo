@@ -33,17 +33,6 @@
             android:text="@string/username"
             android:paddingVertical="10dp"
             android:textSize="25sp"/>
-    
-    <TextView android:id="@+id/configSerie"
-        android:layout_width="300dp"
-        android:paddingVertical="10dp"
-        android:background="@drawable/rect"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Serie"
-        android:textSize="25sp"/>
 
     <TextView android:id="@+id/configAcesso"
         android:layout_width="300dp"
@@ -55,6 +44,22 @@
         android:gravity="center"
         android:text="Acesso"
         android:textSize="25sp"/>
+    
+    <TextView
+        android:id="@+id/configSerie"
+        android:visibility="gone"
+        android:layout_width="300dp"
+        android:paddingVertical="10dp"
+        android:background="@drawable/rect"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Serie"
+        android:textSize="25sp"/>
+
+
+
     <Button android:id="@+id/button_logout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
