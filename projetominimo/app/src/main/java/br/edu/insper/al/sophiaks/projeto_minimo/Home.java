@@ -80,12 +80,7 @@ public class Home extends AppCompatActivity {
 
         bell = findViewById(R.id.bell);
 
-        bell.setOnClickListener((view) -> {
-            Intent intent = new Intent(this, Notifications.class);
-            intent.putExtra("response", response);
-            intent.putExtra("username", username);
-            startActivity(intent);
-        });
+
 
 
         // Busca as informações do Post do login
@@ -124,6 +119,9 @@ public class Home extends AppCompatActivity {
         config.setOnClickListener(view ->{
             goToConfig(loginPage.getStringExtra("response"));
         });
+        bell.setOnClickListener((view) -> {
+            goToNot(loginPage.getStringExtra("response"));
+        });
     }
     //Vai pra página de configurações
     private void goToConfig(String response) {
@@ -135,6 +133,17 @@ public class Home extends AppCompatActivity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
+    //Vai pra página de configurações
+    private void goToNot(String response) {
+        Log.d("loginUser", loginUser);
+        Log.d("username", username);
+        Intent intent = new Intent(this, Notifications.class);
+        intent.putExtra("response", response);
+        intent.putExtra("loginUser", loginUser);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
 
     // Esconde o teclado quando clica fora do EditText
     public void hideKeyboard(View view) {

@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button buttonLogin = findViewById(R.id.button_login);
         Button buttonRegister = findViewById(R.id.button_register);
-        Button buttonToken = findViewById(R.id.button_token);
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
 
@@ -70,31 +69,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentRegister);
         });
 
-        buttonToken.setOnClickListener((view) ->{
-            // Get token
-            // [START retrieve_current_token]
-            FirebaseInstanceId.getInstance().getInstanceId()
-                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                            if (!task.isSuccessful()) {
-                                Log.w("MainActivity", "getInstanceId failed", task.getException());
-                                return;
-                            }
-
-                            // Get new Instance ID token
-                            String token = task.getResult().getToken();
-
-                            // Log and toast
-//                            String msg = getString(R.string.msg_token_fmt, token);
-                            Log.v("TOKEN", token);
-                            Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-            // [END retrieve_current_token]
-            Intent intent = new Intent(this, Notifications.class);
-            startActivity(intent);
-        });
 
         //Esconde o teclado quando clica fora do EditText
         textUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -146,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("VOLLEY", response);
-                Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
                 if (!response.contains("False")) {
                     goToPage(response);
                 }
