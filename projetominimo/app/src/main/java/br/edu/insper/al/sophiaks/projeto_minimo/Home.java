@@ -1,6 +1,7 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -46,7 +47,11 @@ import java.util.Map;
 import static android.provider.MediaStore.Video.Thumbnails.VIDEO_ID;
 
 public class Home extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private RequestQueue mQueue;
+
     // Declare Variables
     ViewPager viewPager;
     PagerAdapter adapter;
@@ -69,7 +74,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         // Locate the ViewPager in activity_home.xml
-        viewPager = findViewById(R.id.pager);
+        //viewPager = findViewById(R.id.recyclerView);
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -149,10 +154,12 @@ public class Home extends AppCompatActivity {
                                 linkedVimeoUrl.add(vimeoid);
                             }
 
+
+
                             // Pass results to ViewPagerAdapter Class
-                            adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
+                            //adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
                             // Binds the Adapter to the ViewPager
-                            viewPager.setAdapter(adapter);
+                            //viewPager.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

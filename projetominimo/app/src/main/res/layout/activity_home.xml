@@ -71,10 +71,12 @@
         android:layout_marginTop="50dp"
         >
         <androidx.support.v7.widget.RecyclerView
-            android:id="@+id/config"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:scrollbars="vertical"
-            android:layout_height="match_parent" />
+            android:padding="4dp"
+            android:layout_height="match_parent"/>
+
 
 
     </RelativeLayout>
@@ -86,6 +88,7 @@
         android:background="#1b2c2c">
 
         <ImageButton
+            android:id="@+id/config"
             android:layout_width="38dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"

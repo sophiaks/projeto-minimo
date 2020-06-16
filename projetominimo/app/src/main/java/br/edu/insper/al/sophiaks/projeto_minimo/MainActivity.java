@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
 
+
         //          METODO DE LOGIN
         buttonLogin.setOnClickListener((view) -> {
             String username = textUsername.getText().toString();
