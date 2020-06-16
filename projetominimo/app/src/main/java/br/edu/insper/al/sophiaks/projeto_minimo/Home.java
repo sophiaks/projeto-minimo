@@ -60,14 +60,14 @@ public class Home extends AppCompatActivity {
 
 
     public ArrayList<ExampleVideo> exampleVideos = new ArrayList<>();
-
+    String response;
     Intent loginPage;
     JSONObject login;
     Bundle extras;
     String serie;
     String id;
     EditText search;
-    ImageButton notification;
+    ImageButton bell;
     String loginUser;
     String username;
     ImageButton config;
@@ -78,10 +78,12 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         config = findViewById(R.id.configButton);
 
-        ImageButton bell = findViewById(R.id.button_home);
+        bell = findViewById(R.id.bell);
 
         bell.setOnClickListener((view) -> {
             Intent intent = new Intent(this, Notifications.class);
+            intent.putExtra("response", response);
+            intent.putExtra("username", username);
             startActivity(intent);
         });
 
@@ -120,14 +122,15 @@ public class Home extends AppCompatActivity {
         });
 
         config.setOnClickListener(view ->{
-            goToConfig();
+            goToConfig(loginPage.getStringExtra("response"));
         });
     }
     //Vai pra página de configurações
-    private void goToConfig() {
+    private void goToConfig(String response) {
         Log.d("loginUser", loginUser);
         Log.d("username", username);
         Intent intent = new Intent(this, ConfigActivity.class);
+        intent.putExtra("response", response);
         intent.putExtra("loginUser", loginUser);
         intent.putExtra("username", username);
         startActivity(intent);

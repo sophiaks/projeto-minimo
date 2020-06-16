@@ -6,6 +6,17 @@
     tools:context=".ConfigActivity"
     android:orientation="vertical"
     android:background="#1b2c2c">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/back"
+            tools:ignore="MissingConstraints" />
         <ImageView
             android:layout_marginTop="60dp"
             android:layout_gravity="center_horizontal"

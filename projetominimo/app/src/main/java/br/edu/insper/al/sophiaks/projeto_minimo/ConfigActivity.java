@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -16,13 +17,14 @@ public class ConfigActivity extends AppCompatActivity {
     TextView configSerie;
     TextView configAcesso;
     Button logout;
+    ImageButton back;
     Intent loginPage;
     Bundle extras;
     JSONObject loginUser;
     String serie;
     String acesso;
     String username;
-
+    String response;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class ConfigActivity extends AppCompatActivity {
             try {
                 loginUser = new JSONObject(loginPage.getStringExtra("loginUser")); // pega as infos como um JSONObject
                 username = loginPage.getStringExtra("username");
+                response = loginPage.getStringExtra("response");
             } catch(JSONException e) {
                 e.printStackTrace();
             }
@@ -52,6 +55,16 @@ public class ConfigActivity extends AppCompatActivity {
         configUsername.setText(username);
         configAcesso.setText(acesso);
         configSerie.setText(serie);
+
+        ImageButton back = findViewById(R.id.back);
+
+        back.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Home.class);
+            intent.putExtra("response", response);
+            intent.putExtra("username", username);
+            startActivity(intent);
+        });
+
         logout.setOnClickListener(view ->{
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
