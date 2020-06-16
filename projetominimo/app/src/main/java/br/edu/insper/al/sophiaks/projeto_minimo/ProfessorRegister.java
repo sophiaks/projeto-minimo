@@ -249,7 +249,7 @@ public class ProfessorRegister extends AppCompatActivity {
 
     public void doRegister(){
         // Instantiate the RequestQueue.
-        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";;
+        String url = "http://plataformasementedev.minimo.com.br/services/cadastro_mobile";
         // Request a string response from the provided URL.
         StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -269,10 +269,10 @@ public class ProfessorRegister extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("perfil", optValue);
+                params.put("perfil", "Professor");
                 params.put("codigo_professores", codProf.getText().toString());
                 params.put("first_name", nameProf.getText().toString());
-                params.put("serie_id", "");
+                params.put("serie_id", "7");
                 params.put("email_responsavel", emailProf.getText().toString());
                 params.put("email_responsavel2", "");
                 params.put("responsavel", "");

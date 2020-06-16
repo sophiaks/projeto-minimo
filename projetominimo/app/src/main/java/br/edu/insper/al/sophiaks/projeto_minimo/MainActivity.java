@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String url= "http://sistema.programasemente.com.br/profile/auth_view_mobile/";
+    public String url= "http://plataformasementedev.minimo.com.br/profile/auth_view_mobile/";
     String username;
 
     @Override
