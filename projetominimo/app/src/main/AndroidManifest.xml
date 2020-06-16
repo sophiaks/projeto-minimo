@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar.WithColoredSpinners"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ConfigActivity"></activity>
         <!--
      Set custom default icon. This is used when no icon is set for incoming notification messages.
      See README(https://goo.gl/l4GJaQ) for more.
@@ -43,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ConfigActivity" />
 
         <service
             android:name=".MyFirebaseMessagingService"

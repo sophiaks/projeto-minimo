@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ConfigActivity extends AppCompatActivity {
-    TextView configUsername = findViewById(R.id.configUsername);
+    TextView configUsername;
+    TextView configSerie;
+    TextView configAcesso;
+    Button logout;
     Intent loginPage;
     Bundle extras;
     JSONObject loginUser;
@@ -23,6 +27,10 @@ public class ConfigActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
+        configUsername = findViewById(R.id.configUsername);
+        configAcesso = findViewById(R.id.configAcesso);
+        configSerie = findViewById(R.id.configSerie);
+        logout = findViewById(R.id.button_logout);
         loginPage = getIntent();
         extras = loginPage.getExtras();
         if (extras != null){
@@ -40,6 +48,14 @@ public class ConfigActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Log.d("id", serie + " " + acesso);
-//        configUsername.setText(username);
+        Log.d("id",username);
+        configUsername.setText(username);
+        configAcesso.setText(acesso);
+        configSerie.setText(serie);
+        logout.setOnClickListener(view ->{
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 }
