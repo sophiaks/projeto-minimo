@@ -69,15 +69,11 @@
         android:layout_height="550dp"
         android:layout_gravity="center_horizontal"
         >
-<<<<<<< HEAD
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/pager"
-=======
         <androidx.recyclerview.widget.RecyclerView
             android:background="#1b2c2c"
             android:id="@+id/recycleVideos"
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
+
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -86,10 +82,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-<<<<<<< HEAD
-        android:layout_marginTop="150dp"
-=======
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
         android:background="#1b2c2c">
 
         <ImageButton android:id="@+id/configButton"

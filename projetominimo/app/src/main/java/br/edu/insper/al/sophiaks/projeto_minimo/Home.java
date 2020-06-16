@@ -1,10 +1,9 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD
-=======
+
 import androidx.recyclerview.widget.LinearLayoutManager;
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
+
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -59,20 +58,9 @@ public class Home extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private RequestQueue mQueue;
 
-<<<<<<< HEAD
-    // Declare Variables
-    ViewPager viewPager;
-    PagerAdapter adapter;
 
-    LinkedList<String> linkedTitle;
-    LinkedList<String> linkedVimeo;
-    LinkedList<String> linkedThumb;
-    LinkedList<String> linkedCategory;
-    LinkedList<String> linkedVimeoUrl;
-=======
     public ArrayList<ExampleVideo> exampleVideos = new ArrayList<>();
 
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
     Intent loginPage;
     JSONObject login;
     Bundle extras;
@@ -93,18 +81,8 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         config = findViewById(R.id.configButton);
 
-<<<<<<< HEAD
-        ImageButton bell = findViewById(R.id.bell);
 
-        bell.setOnClickListener((view) -> {
-            Intent intent = new Intent(this, Notifications.class);
-            startActivity(intent);
-        });
 
-        // Locate the ViewPager in activity_home.xml
-        viewPager = findViewById(R.id.pager);
-=======
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -190,14 +168,11 @@ public class Home extends AppCompatActivity {
                                 //                                Capture thumb and add in a linked List
                                 String vimeoid = data.getString("url");
 
-<<<<<<< HEAD
 
-
-=======
                                 ExampleVideo exampleVideo = new ExampleVideo(vimeoid,nome,categoria);
                                 exampleVideos.add(exampleVideo);
                             }
->>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
+
                             // Pass results to ViewPagerAdapter Class
                             buildRecyclerView();
                         } catch (JSONException e) {
