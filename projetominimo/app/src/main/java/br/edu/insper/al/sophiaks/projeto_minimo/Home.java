@@ -71,9 +71,6 @@ public class Home extends AppCompatActivity {
     String loginUser;
     String username;
     ImageButton config;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
