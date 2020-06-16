@@ -1,6 +1,10 @@
 package br.edu.insper.al.sophiaks.projeto_minimo;
 
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import androidx.recyclerview.widget.LinearLayoutManager;
+>>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -40,6 +44,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.PrivateKey;
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -54,6 +59,7 @@ public class Home extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private RequestQueue mQueue;
 
+<<<<<<< HEAD
     // Declare Variables
     ViewPager viewPager;
     PagerAdapter adapter;
@@ -63,18 +69,31 @@ public class Home extends AppCompatActivity {
     LinkedList<String> linkedThumb;
     LinkedList<String> linkedCategory;
     LinkedList<String> linkedVimeoUrl;
+=======
+    public ArrayList<ExampleVideo> exampleVideos = new ArrayList<>();
+
+>>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
     Intent loginPage;
     JSONObject login;
     Bundle extras;
     String serie;
     String id;
     EditText search;
+    ImageButton notification;
+    String loginUser;
+    String username;
+    ImageButton config;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        config = findViewById(R.id.configButton);
 
+<<<<<<< HEAD
         ImageButton bell = findViewById(R.id.bell);
 
         bell.setOnClickListener((view) -> {
@@ -84,6 +103,8 @@ public class Home extends AppCompatActivity {
 
         // Locate the ViewPager in activity_home.xml
         viewPager = findViewById(R.id.pager);
+=======
+>>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
 
         // Busca as informações do Post do login
         loginPage = getIntent();
@@ -91,6 +112,8 @@ public class Home extends AppCompatActivity {
         if (extras != null){
             try {
                 login = new JSONObject(loginPage.getStringExtra("response")); // pega as infos como um JSONObject
+                loginUser = loginPage.getStringExtra("response");
+                username = loginPage.getStringExtra("username");
             } catch(JSONException e) {
                 e.printStackTrace();
             };
@@ -104,11 +127,7 @@ public class Home extends AppCompatActivity {
         Log.d("id", serie + " " + id);
 
         mQueue = Volley.newRequestQueue(this);
-        linkedTitle = new LinkedList<String>();
-        linkedVimeo= new LinkedList<String>();
-        linkedThumb= new LinkedList<String>();
-        linkedCategory= new LinkedList<String>();
-        linkedVimeoUrl = new LinkedList<String>();
+
         jsonParse();
         search = findViewById(R.id.search);
 
@@ -120,7 +139,18 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
+        config.setOnClickListener(view ->{
+            goToConfig();
+        });
+    }
+    //Vai pra página de configurações
+    private void goToConfig() {
+        Log.d("loginUser", loginUser);
+        Log.d("username", username);
+        Intent intent = new Intent(this, ConfigActivity.class);
+        intent.putExtra("loginUser", loginUser);
+        intent.putExtra("username", username);
+        startActivity(intent);
     }
 
     // Esconde o teclado quando clica fora do EditText
@@ -128,6 +158,8 @@ public class Home extends AppCompatActivity {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+
 
     private void jsonParse(){
         String url= "http://sistema.programasemente.com.br/dashboard/index_mobile/"+serie+"/"+id+"/";
@@ -143,32 +175,31 @@ public class Home extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++){
                                 // Data assume a chave dos dicionários dentro do value da key "data"
                                 JSONObject data = jsonArray.getJSONObject(i);
+
 //                                Capture name and add in a linked List
                                 String nome = data.getString("nome");
-                                linkedTitle.add(nome);
 
 //                                Capture url vimeo and add in a linked List
                                 String vimeo = data.getString("vimeo");
-                                linkedVimeo.add(vimeo);
 
 //                                Capture category and add in a linked List
                                 String categoria = data.getString("categoria");
-                                linkedCategory.add(categoria);
 
 //                                Capture thumb and add in a linked List
                                 String thumb = data.getString("thumbnail");
-                                linkedThumb.add(thumb);
                                 //                                Capture thumb and add in a linked List
                                 String vimeoid = data.getString("url");
-                                linkedVimeoUrl.add(vimeoid);
+
+<<<<<<< HEAD
+
+
+=======
+                                ExampleVideo exampleVideo = new ExampleVideo(vimeoid,nome,categoria);
+                                exampleVideos.add(exampleVideo);
                             }
-
-
-
+>>>>>>> 2bc8c5599c158d8cb82f33ae8226541be6f026df
                             // Pass results to ViewPagerAdapter Class
-                            adapter = new ViewPagerAdapter(Home.this, linkedTitle, linkedVimeo, linkedCategory, linkedThumb, linkedVimeoUrl);
-                            // Binds the Adapter to the ViewPager
-                            viewPager.setAdapter(adapter);
+                            buildRecyclerView();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -182,4 +213,14 @@ public class Home extends AppCompatActivity {
         });
         mQueue.add(request);
     }
+    public void buildRecyclerView() {
+        mRecyclerView = findViewById(R.id.recycleVideos);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new VideoAdapter(exampleVideos);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+
 }

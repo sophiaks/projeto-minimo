@@ -41,6 +41,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     public String url= "http://sistema.programasemente.com.br/profile/auth_view_mobile/";
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
         final EditText textUsername = findViewById(R.id.text_username);
         final EditText textPassword = findViewById(R.id.text_password);
 
+
         //          METODO DE LOGIN
         buttonLogin.setOnClickListener((view) -> {
-            String username = textUsername.getText().toString();
+            username = textUsername.getText().toString();
             String password = textPassword.getText().toString();
             if(validateLogin(username, password)) {
                 doLogin(username, password);
@@ -173,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
     private void goToPage(String response) {
         Intent intent = new Intent(this, Home.class);
         intent.putExtra("response", response);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 }
